@@ -22,24 +22,6 @@ function compileTemplates () {
         // Helpers
         .helpers(`${paths.srcDir}helpers/*.js`)
         .helpers(hbLayouts)
-        // .helpers({
-        //     foo: function () { ... },
-        //     bar: function () { ... }
-        // })
- 
-        // Decorators
-        // .decorators('./decorators/**/*.js')
-        // .decorators({
-        //     baz: function () { ... },
-        //     qux: function () { ... }
-        // })
- 
-        // Data
-        // .data('./data/**/*.{js,json}')
-        // .data({
-        //     lorem: 'dolor',
-        //     ipsum: 'sit amet'
-        // });
 
   return gulp.src(`${paths.srcDir}${paths.srcFile}`)
     .pipe(hbStream)

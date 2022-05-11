@@ -5,7 +5,6 @@ const postcss = require('gulp-postcss')
 const purgecss = require('gulp-purgecss')
 const cssnano = require('cssnano')
 const utils = require('./utils')
-//const tailwindcss = require('tailwindcss')
 const tailwind = require('./tailwind')
 
 const paths = {
@@ -53,18 +52,7 @@ const compile = {
       .pipe(postcss(postcssDistProcessors))
       .pipe(purgecss({
         content: ['dist/**/*.html'],
-        whitelistPatterns: [
-          /flickity\-/,
-          /modal\-/,
-          /is\-n\-/,
-          /has\-text\-/,
-          /has\-background\-/,
-          /dot/, 
-          /is\-selected/,
-          /openMobile/,
-          /previous/,
-          /next/
-        ]
+        whitelistPatterns: []
       }))
       .pipe(gulp.dest(paths.distDir))
       .pipe(utils.browserSync.stream({match: '**/*.css'}))

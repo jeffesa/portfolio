@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "bulma": "^0.8.0",
-    "flickity": "^2.2.1",
     "gulp-imagemin": "^6.1.1",
     "handlebars-layouts": "^3.1.4",
     "vanilla-masker": "^1.2.0",
