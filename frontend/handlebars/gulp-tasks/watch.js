@@ -5,14 +5,17 @@ const markup = require('./markup')
 const utils = require('./utils')
 
 function watchCss () {
-  return gulp.watch(`${css.paths.srcDir}**/*.scss`,  gulp.series(css.tasks.dev))
+  return gulp.watch([
+    `${css.paths.srcDir}**/*.scss`,
+    `${markup.paths.srcDir}**/*.hbs`
+  ], gulp.series(css.tasks.dev))
 }
 
 function watchJs () {
   return gulp.watch([
   `${js.paths.srcDir}**/*.js`,
   `${markup.paths.srcDir}**/*.hbs`
-],  gulp.series(js.tasks.dev))
+], gulp.series(js.tasks.dev))
 }
 
 function watchMarkup () {
@@ -27,9 +30,9 @@ gulp.task('watch', () => {
     notify: false
   })
 
+  watchMarkup()
   watchCss()
   watchJs()
-  watchMarkup()
 })
 
 gulp.task('watch:js', watchJs)

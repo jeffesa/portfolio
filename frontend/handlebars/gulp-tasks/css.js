@@ -5,6 +5,8 @@ const postcss = require('gulp-postcss')
 const purgecss = require('gulp-purgecss')
 const cssnano = require('cssnano')
 const utils = require('./utils')
+const tailwindcss = require('tailwindcss')
+const options = require("../config");
 
 const paths = {
   srcDir : 'src/scss/',
@@ -25,7 +27,10 @@ const sassDistOptions = {
   sourceMap : false
 }
 
-const postcssDevProcessors = [autoprefixer({browsers: ['ios >= 9']})]
+const postcssDevProcessors = [
+  autoprefixer({browsers: ['ios >= 9']}),
+  tailwindcss(options.config.tailwindjs)
+]
 
 const postcssDistProcessors = [
   autoprefixer({browsers: ['ios >= 9']}),

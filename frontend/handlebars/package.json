@@ -27,19 +27,29 @@
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-hb": "^8.0.0",
-    "gulp-postcss": "^6.2.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "del": "^6.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-replace": "^1.0.0",
+    "gulp-terser": "^2.0.1",
+    "gulp-webp": "^4.0.1",
+    "log-symbols": "^4.1.0"
   },
   "dependencies": {
     "bulma": "^0.8.0",
     "flickity": "^2.2.1",
     "gulp-imagemin": "^6.1.1",
     "handlebars-layouts": "^3.1.4",
-    "vanilla-masker": "^1.2.0"
+    "vanilla-masker": "^1.2.0",
+    "tailwindcss": "^2.1.1",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.9"
   }
 }
