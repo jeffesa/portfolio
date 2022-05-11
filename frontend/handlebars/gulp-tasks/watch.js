@@ -5,18 +5,18 @@ const markup = require('./markup')
 const utils = require('./utils')
 
 function watchCss () {
-  return gulp.watch(`${css.paths.srcDir}**/*.scss`, [css.tasks.dev])
+  return gulp.watch(`${css.paths.srcDir}**/*.scss`,  gulp.series(css.tasks.dev))
 }
 
 function watchJs () {
   return gulp.watch([
   `${js.paths.srcDir}**/*.js`,
   `${markup.paths.srcDir}**/*.hbs`
-], [js.tasks.dev])
+],  gulp.series(js.tasks.dev))
 }
 
 function watchMarkup () {
-  return gulp.watch(`${markup.paths.srcDir}**/*.hbs`, [markup.tasks.dev])
+  return gulp.watch(`${markup.paths.srcDir}**/*.hbs`,  gulp.series(markup.tasks.dev))
 }
 
 gulp.task('watch', () => {

@@ -1,7 +1,7 @@
 {
-  "name": "cielo_novo_blog",
+  "name": "jefferson_portfolio",
   "version": "1.0.0",
-  "description": "Novo layout de Cielo Blog",
+  "description": "Portfolio Jefferson",
   "scripts": {
     "lint": "eslint src/js/**",
     "dev": "concurrently \"gulp css:dev\" \"yarn lint && gulp js:dev\" \"gulp markup:dev\" \"gulp images:dev\"",
@@ -24,7 +24,7 @@
     "concurrently": "^3.5.0",
     "cssnano": "^3.10.0",
     "eslint": "^4.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-hb": "^8.0.0",
     "gulp-postcss": "^6.2.0",
