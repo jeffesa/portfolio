@@ -34,7 +34,8 @@ const postcssDevProcessors = [
 
 const postcssDistProcessors = [
   autoprefixer({browsers: ['ios >= 9']}),
-  cssnano()
+  // cssnano(),
+  tailwind.css()
 ]
 
 const compile = {
