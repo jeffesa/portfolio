@@ -2,5 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../general/colors";
 @import '../components/header';
 @import '../components/footer';
+
+body {
+  font-family: Inter,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif;
+  background-color: $dark-heavy-100;
+  @apply text-white
+}
