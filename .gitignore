@@ -16,6 +16,7 @@ babel_cache/
 **/*.map
 *.log
 *.sublime-*
+.vscode
 
 #---------------------------------------
 # OS generated files
