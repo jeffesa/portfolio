@@ -1,0 +1,14 @@
+{
+  "Menu": {
+    "description": "Auto imported from components/Menu.vue"
+  },
+  "Networks": {
+    "description": "Auto imported from components/Networks.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "Tutorial": {
+    "description": "Auto imported from components/Tutorial.vue"
+  }
+}
