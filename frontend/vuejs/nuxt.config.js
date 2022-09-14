@@ -52,12 +52,7 @@ export default {
     postcss: {
       // Add plugin names as key and arguments as value
       // Install them before as dependencies with npm or yarn
-      plugins: {
-        // Disable a plugin by passing false as value
-        'postcss-url': false,
-        'postcss-nested': {},
-        'postcss-rem-to-px': true
-      },
+      plugins: {},
       preset: {
         // Change the postcss-preset-env settings
         autoprefixer: {

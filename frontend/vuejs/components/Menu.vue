@@ -57,7 +57,7 @@
         color: #949495;
         font-size: 10px;
         font-weight: 700;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
       }
       &.menu__item__link--active {
         .menu__item__line {
