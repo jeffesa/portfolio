@@ -14,7 +14,7 @@
       <Networks />
     </div>
     <div>
-      <div>projects</div>
+      <Projects />
       <div>experience</div>
     </div>
   </div>
@@ -24,11 +24,13 @@
 import Vue from 'vue'
 import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
+import Projects from '../components/Projects.vue'
 
 export default {
     computed: {
         ...mapState(["user"])
-    }
+    },
+    components: { Projects }
 }
 </script>
 

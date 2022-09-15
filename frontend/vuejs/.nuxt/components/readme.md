@@ -9,4 +9,5 @@ You can directly use them in pages and other components without the need to impo
 - `<Menu>` | `<menu>` (components/Menu.vue)
 - `<Networks>` | `<networks>` (components/Networks.vue)
 - `<NuxtLogo>` | `<nuxt-logo>` (components/NuxtLogo.vue)
+- `<Projects>` | `<projects>` (components/Projects.vue)
 - `<Tutorial>` | `<tutorial>` (components/Tutorial.vue)
