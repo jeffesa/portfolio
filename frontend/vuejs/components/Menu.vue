@@ -2,32 +2,24 @@
   <div class="menu mt-16 hidden md:block">
     <nav>
       <ul class="flex flex-row flex-col">
-        <li class="md:my-4 menu__item">
-          <a class="menu__item__link menu__item__link--active flex items-center" href="">
-            <span class="text-xs">01</span>
+        <li 
+          class="md:my-4 menu__item"
+          v-for="(item, i) in store.menu"
+          :key="i"
+        >
+          <a 
+            class="menu__item__link flex items-center" href=""
+            :class="i === 0 ? 'menu__item__link--active' : ''"
+          >
+            <span 
+              class="text-xs"
+              v-text="`0${i+1}`"
+            />
             <span class="menu__item__line inline-block w-6 mx-4"></span>
-            <span class="text-xs uppercase">Projects</span>
-          </a>
-        </li>
-        <li class="md:my-4 menu__item">
-          <a class="menu__item__link flex items-center" href="">
-            <span class="text-xs">02</span>
-            <span class="menu__item__line inline-block w-6 mx-4"></span>
-            <span class="text-xs uppercase">Experiences</span>
-          </a>
-        </li>
-        <li class="md:my-4 menu__item">
-          <a class="menu__item__link flex items-center" href="">
-            <span class="text-xs">03</span>
-            <span class="menu__item__line inline-block w-6 mx-4"></span>
-            <span class="text-xs uppercase">Interviews</span>
-          </a>
-        </li>
-        <li class="md:my-4 menu__item">
-          <a class="menu__item__link flex items-center" href="">
-            <span class="text-xs">04</span>
-            <span class="menu__item__line inline-block w-6 mx-4"></span>
-            <span class="text-xs uppercase">About my portfolio</span>
+            <span 
+              class="text-xs uppercase"
+              v-text="item.name"
+            />
           </a>
         </li>
       </ul>
@@ -36,7 +28,13 @@
 </template>
 
 <script lang="ts">
-  console.log('blabla')
+  export default {
+    data(): any {
+      return {
+        store: this.$store.state.data.portfolio
+      }
+    },
+  }
 </script>
 
 <style lang="scss" scoped>

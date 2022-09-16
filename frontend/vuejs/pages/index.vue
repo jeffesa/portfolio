@@ -3,13 +3,18 @@
     <div class="portfolio__information flex flex-col justify-start relative">
       <div class="relative md:fixed">
         <div>
-          <h1 class="hidden">Hello, my name is {{$store.state.store.user.name}}</h1>
-          <h1 class="portfolio__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith">Jefferson Santos</h1>
-          <h2 class="portfolio__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise">Staff Software Engineer</h2>
-          <div class="portfolio__description text-sm mt-8">
-            <p>I build open-source front-end libraries at <a href="#">Algolia</a> and host two tech podcasts: <a href="#">Developer Experience</a> and Entre Devs.</p>
-            <p>On my spare time, I share what I learn on my blog and speak at <a href="#">tech conferences</a> around the world.</p>
-          </div>
+          <h1 
+            class="portfolio__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
+            v-text="store.title"
+          />
+          <h2 
+            class="portfolio__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
+            v-text="store.subtitle"
+          />
+          <div 
+            class="portfolio__description text-sm mt-8"
+            v-html="store.description"
+          />
           <Menu />
         </div>
         <Profile />
@@ -28,10 +33,12 @@ import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
 
 export default {
-    computed: {
-        ...mapState(["user"])
-    }
-}
+    data(): any {
+      return {
+        store: this.$store.state.data.portfolio
+      }
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +64,7 @@ export default {
       color: #878788;
       line-height: 2;
 
-      a {
+      ::v-deep a {
         color: #fff;
         text-decoration-line: underline;
       }
