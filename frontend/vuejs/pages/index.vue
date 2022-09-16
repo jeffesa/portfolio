@@ -12,7 +12,7 @@
           </div>
           <Menu />
         </div>
-        <Networks />
+        <Profile />
       </div>
     </div>
     <div>

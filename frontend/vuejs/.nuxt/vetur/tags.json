@@ -2,11 +2,11 @@
   "Menu": {
     "description": "Auto imported from components/Menu.vue"
   },
-  "Networks": {
-    "description": "Auto imported from components/Networks.vue"
-  },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "Profile": {
+    "description": "Auto imported from components/Profile.vue"
   },
   "Projects": {
     "description": "Auto imported from components/Projects.vue"
