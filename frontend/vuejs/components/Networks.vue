@@ -1,5 +1,5 @@
 <template>
-  <div class="networks grid pt-8 md:pt-0">
+  <div class="networks grid pt-8 md:pt-32">
     <img alt="" src="https://www.sarahdayan.dev/_next/image?url=%2Fimages%2Fsarah-dayan.jpg&amp;w=256&amp;q=75"
       class="networks__photo" />
     <div class="flex networks__github">

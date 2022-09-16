@@ -14,6 +14,7 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_7b936aa4 from 'nuxt_plugin_plugin_7b936aa4' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_vuesimpleicons_845a71fa from 'nuxt_plugin_vuesimpleicons_845a71fa' // Source: ../node_modules/vue-simple-icons (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -212,6 +213,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_plugin_7b936aa4 === 'function') {
     await nuxt_plugin_plugin_7b936aa4(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_vuesimpleicons_845a71fa === 'function') {
+    await nuxt_plugin_vuesimpleicons_845a71fa(app.context, inject)
   }
 
   // Lock enablePreview in context

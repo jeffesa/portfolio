@@ -30,6 +30,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~node_modules/vue-simple-icons'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,6 +50,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [/vue-vue-simple-icons/],
     postcss: {
       // Add plugin names as key and arguments as value
       // Install them before as dependencies with npm or yarn

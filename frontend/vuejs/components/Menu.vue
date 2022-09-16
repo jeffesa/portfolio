@@ -13,7 +13,7 @@
           <a class="menu__item__link flex items-center" href="">
             <span class="text-xs">02</span>
             <span class="menu__item__line inline-block w-6 mx-4"></span>
-            <span class="text-xs uppercase">Talks</span>
+            <span class="text-xs uppercase">Experiences</span>
           </a>
         </li>
         <li class="md:my-4 menu__item">
@@ -21,6 +21,13 @@
             <span class="text-xs">03</span>
             <span class="menu__item__line inline-block w-6 mx-4"></span>
             <span class="text-xs uppercase">Interviews</span>
+          </a>
+        </li>
+        <li class="md:my-4 menu__item">
+          <a class="menu__item__link flex items-center" href="">
+            <span class="text-xs">04</span>
+            <span class="menu__item__line inline-block w-6 mx-4"></span>
+            <span class="text-xs uppercase">About my portfolio</span>
           </a>
         </li>
       </ul>
@@ -36,6 +43,8 @@
 .menu {
   .menu__item {
     .menu__item__link {
+      width: fit-content;
+
       &:hover {
         .menu__item__line {
           @apply w-12;
