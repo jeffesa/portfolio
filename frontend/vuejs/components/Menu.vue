@@ -8,8 +8,10 @@
           :key="i"
         >
           <a 
-            class="menu__item__link flex items-center" href=""
-            :class="i === 0 ? 'menu__item__link--active' : ''"
+            href="#"
+            class="menu__item__link flex items-center" 
+            :class="i === isActive ? 'menu__item__link--active' : ''"
+            @click="isActive = i"
           >
             <span 
               class="text-xs"
@@ -31,7 +33,8 @@
   export default {
     data(): any {
       return {
-        store: this.$store.state.data.portfolio
+        store: this.$store.state.data.portfolio,
+        isActive: 0
       }
     },
   }

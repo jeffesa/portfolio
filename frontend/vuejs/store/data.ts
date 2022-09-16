@@ -28,6 +28,14 @@ export const state = () => ({
         title: 'Github',
         link: 'https:github.com'
       }
-    }
+    },
+    project: [
+      {
+        icon: '',
+        language: '',
+        description: '',
+        date: ''
+      }
+    ]
   },
 })
