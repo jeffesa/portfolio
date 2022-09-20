@@ -3,7 +3,7 @@
     class="projects" @click="$emit('overflow') "
     :class="isActive !== false  ? 'projects__has-modal' : ''"
   >
-    <h2 class="projects__title text-xs font-semibold mt-2 uppercase block md:hidden mt-20">Projects</h2>
+    <h2 class="projects__title text-xs font-semibold mt-2 uppercase block md:hidden mt-20 mb-8">Projects</h2>
     <ul class="projects__list">
       <li 
         class="projects__item p-6 md:p-10 my-2"
@@ -125,6 +125,20 @@
   .projects__list {
     .projects__item {
       width: auto;
+      z-index: 1;
+      background: #201f22;
+
+      @screen md {
+        &:hover {
+          box-shadow: 0px 0px 20px rgb(21, 21, 21);
+          cursor: pointer;
+          opacity: 1 !important;
+        }
+      }
+
+      &:first-child {
+        @apply mt-0;
+      }
 
       &:not(.projects__item--active) {
         transition: all .2s ease-in-out;
@@ -142,13 +156,18 @@
         
         box-shadow: none !important;
         cursor: auto !important;
-        @apply mt-0;
+        @apply mt-0 #{!important};
 
         .projects__item__close {
           position: absolute;
-          right: -26px;
-          top: -15px;
           cursor: pointer;
+          right: -8px;
+          top: 0px;
+
+          @screen md {
+            right: -26px;
+            top: -15px;
+          }
 
           &:after{
             font-size: 30px;
@@ -160,30 +179,16 @@
         }
 
         position: fixed;
-        width: calc(100% - 160px);
-        left: 80px;
-        height: calc(100% - 160px);
-        top: calc(0px + 80px);
-      }
-    }
-    
-    .projects__item {
-      z-index: 1;
-      background: #201f22;
-      
-      &:first-child {
-        @apply mt-8;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
 
         @screen md {
-          @apply mt-0;
-        }
-      }
-    
-      @screen md {
-        &:hover {
-          box-shadow: 0px 0px 20px rgb(21, 21, 21);
-          cursor: pointer;
-          opacity: 1 !important;
+          width: calc(100% - 160px);
+          height: calc(100% - 160px);
+          left: 80px;
+          top: calc(0px + 80px);
         }
       }
     
@@ -206,7 +211,7 @@
         color: #949495;
         letter-spacing: 1px;
         font-size: 10px;
-      }
+      }      
     }
   }
 }
