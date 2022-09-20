@@ -21,7 +21,7 @@
       </div>
     </div>
     <div>
-      <Projects />
+      <Projects @overflow="overflowHidden" />
       <div>experience</div>
     </div>
   </div>
@@ -38,6 +38,18 @@ export default {
         store: this.$store.state.data.portfolio
       }
     },
+
+    methods: {
+      overflowHidden() {
+        console.log('blabla')
+        const body: any =  document.getElementsByTagName('body')[0]
+        if (body.style.overflow !== 'hidden') {
+          //body.style.overflow = "hidden"
+        } else {
+          //body.style.overflow = "auto"
+        }
+      }
+    }
   }
 </script>
 

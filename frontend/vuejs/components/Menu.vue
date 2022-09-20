@@ -34,7 +34,7 @@
     data(): any {
       return {
         store: this.$store.state.data.portfolio,
-        isActive: 0
+        isActive: 0 as number
       }
     },
   }

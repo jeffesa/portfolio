@@ -29,13 +29,56 @@ export const state = () => ({
         link: 'https:github.com'
       }
     },
-    project: [
+    projects: [
       {
-        icon: '',
-        language: '',
-        description: '',
-        date: ''
-      }
+        id: 'vue',
+        name: 'VueJs',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
+      {
+        id: 'php',
+        name: 'PHP',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
+      {
+        id: 'reactjs',
+        name: 'ReactJs',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
+      {
+        id: 'sass',
+        name: 'Sass',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
+      {
+        id: 'typescript',
+        name: 'TypeScript',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
+      {
+        id: 'svelte',
+        name: 'Svelte',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
+      {
+        id: 'wordpress',
+        name: 'Wordpress',
+        title: 'dinerojs/dinero.js',
+        description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+        date: '01 Jan 2022'
+      },
     ]
   },
 })
