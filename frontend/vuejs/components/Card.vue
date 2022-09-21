@@ -4,7 +4,6 @@
     :class="isActive !== false  ? 'card__has-modal' : ''"
     v-if="cards"
   >
-    <h2 class="card__title text-xs font-semibold mt-2 uppercase block md:hidden mt-20 mb-8">Projects</h2>
     <ul class="card__list">
       <li 
         class="card__item p-6 md:p-10 my-2"
@@ -129,10 +128,6 @@
         }
       }
     }
-  }
-
-  .card__title {
-    letter-spacing: 3px;
   }
 
   .card__list {

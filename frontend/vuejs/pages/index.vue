@@ -35,11 +35,17 @@
         <Profile :profile="store.profile" />
       </div>
     </div>
-    <div>
-      <Card 
-        :cards="store.projects"
-        @overflow="overflowHidden" 
-      />
+    <div class="projects__projects">
+      <div>
+        <h2 
+          class="projects__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8"
+          v-text="store.projects.title"
+        />
+        <Card 
+          :cards="store.projects.cards"
+          @overflow="overflowHidden" 
+        />
+      </div>
       <div>experience</div>
     </div>
   </div>
@@ -116,6 +122,12 @@ export default {
         color: #fff;
         text-decoration-line: underline;
       }
+    }
+  }
+
+  .projects__projects {
+    .projects__projects__title {
+      letter-spacing: 3px;
     }
   }
 }
