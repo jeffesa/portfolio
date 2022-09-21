@@ -1,6 +1,6 @@
 {
-  "Cards": {
-    "description": "Auto imported from components/Cards.vue"
+  "Card": {
+    "description": "Auto imported from components/Card.vue"
   },
   "Menu": {
     "description": "Auto imported from components/Menu.vue"

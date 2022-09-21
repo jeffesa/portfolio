@@ -1,10 +1,13 @@
 <template>
-  <div class="menu mt-16 hidden md:block">
+  <div 
+    class="menu mt-16 hidden md:block" 
+    v-if="menu"
+  >
     <nav>
       <ul class="flex flex-row flex-col">
         <li 
           class="md:my-4 menu__item"
-          v-for="(item, i) in store.menu"
+          v-for="(item, i) in menu"
           :key="i"
         >
           <a 
@@ -31,9 +34,15 @@
 
 <script lang="ts">
   export default {
+    props: {
+      menu: {
+        type: Object,
+        required: true
+      }
+    },
+
     data(): any {
       return {
-        store: this.$store.state.data.portfolio.language[0].pt,
         isActive: 0 as number
       }
     },

@@ -1,5 +1,20 @@
 <template>
-  <div class="portfolio grid grid-cols-1 md:grid-cols-2 p-6 md:p-20 h-full">
+  <div class="portfolio relative grid grid-cols-1 md:grid-cols-2 p-6 md:p-20 h-full">
+    <div class="portfolio__language absolute flex md:pr-20 text-xs font-normal">
+      <span 
+        class="pr-2"
+        :class="language === 'pt' ? 'portfolio__language--active' : ''"
+        @click="setLanguage('pt')"
+      >
+        PT
+      </span>
+      <span 
+        :class="language === 'en' ? 'portfolio__language--active' : ''"
+        @click="setLanguage('en')"
+      >
+        EN
+      </span>
+    </div>
     <div class="portfolio__information flex flex-col justify-start relative">
       <div class="relative md:fixed">
         <div>
@@ -15,13 +30,16 @@
             class="portfolio__description text-sm mt-8"
             v-html="store.description"
           />
-          <Menu />
+          <Menu :menu="store.menu" />
         </div>
-        <Profile />
+        <Profile :profile="store.profile" />
       </div>
     </div>
     <div>
-      <Cards @overflow="overflowHidden" />
+      <Card 
+        :cards="store.projects"
+        @overflow="overflowHidden" 
+      />
       <div>experience</div>
     </div>
   </div>
@@ -35,12 +53,13 @@ import { mapState } from 'vuex'
 export default {
     data(): any {
       return {
-        store: this.$store.state.data.portfolio.language[0].pt
+        store: this.$store.state.data.portfolio.language[0].en,
+        language: 'en' as string
       }
     },
 
     methods: {
-      overflowHidden() {
+      overflowHidden(): any {
         console.log('blabla')
         const body: any =  document.getElementsByTagName('body')[0]
         if (body.style.overflow !== 'hidden') {
@@ -48,6 +67,10 @@ export default {
         } else {
           body.style.overflow = "auto"
         }
+      },
+      setLanguage(lang: string): any {
+        this.language = lang
+        this.store = lang === 'pt' ? this.$store.state.data.portfolio.language[0].pt : this.$store.state.data.portfolio.language[0].en
       }
     }
   }
@@ -56,6 +79,19 @@ export default {
 <style lang="scss" scoped>
 .portfolio {
   $width_portfolio: 408px; 
+
+  .portfolio__language {
+    top: 30px;
+    right: 0;
+    color: #878788;
+    cursor: pointer;
+
+    .portfolio__language--active {
+      color: #fff;
+      text-decoration-line: underline;
+    }
+  }
+
   .portfolio__information {
     max-width: $width_portfolio;
 

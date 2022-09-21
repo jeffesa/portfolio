@@ -1,4 +1,4 @@
-export { default as Cards } from '../../components/Cards.vue'
+export { default as Card } from '../../components/Card.vue'
 export { default as Menu } from '../../components/Menu.vue'
 export { default as NuxtLogo } from '../../components/NuxtLogo.vue'
 export { default as Profile } from '../../components/Profile.vue'
