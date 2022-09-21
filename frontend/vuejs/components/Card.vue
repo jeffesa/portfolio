@@ -94,7 +94,7 @@
 
     props: {
       cards: {
-        type: Object,
+        type: Array,
         required: true
       }
     },
