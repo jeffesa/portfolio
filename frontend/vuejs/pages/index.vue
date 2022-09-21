@@ -35,7 +35,7 @@ import { mapState } from 'vuex'
 export default {
     data(): any {
       return {
-        store: this.$store.state.data.portfolio
+        store: this.$store.state.data.portfolio.language[0].pt
       }
     },
 

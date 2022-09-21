@@ -33,7 +33,7 @@
   export default {
     data(): any {
       return {
-        store: this.$store.state.data.portfolio,
+        store: this.$store.state.data.portfolio.language[0].pt,
         isActive: 0 as number
       }
     },

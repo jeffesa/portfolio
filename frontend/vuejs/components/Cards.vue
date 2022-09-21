@@ -14,51 +14,52 @@
         @click="$emit('overflow')"
       >
         <div 
-          class="projects__item__language font-bold uppercase flex relative"
-          :class="project.id === 'vue' ? 'projects__item__language--vue' :
-                  project.id === 'php' ? 'projects__item__language--php' : 
-                  project.id === 'reactjs' ? 'projects__item__language--reactjs' :
-                  project.id === 'sass' ? 'projects__item__language--sass' :
-                  project.id === 'typescript' ? 'projects__item__language--typescript' :
-                  project.id === 'svelte' ? 'projects__item__language--svelte' :
-                  project.id === 'wordpress' ? 'projects__item__language--wordpress' :''"
+          class="projects__item__title font-bold uppercase flex relative"
+          :style="{color: project.colors.title}"
         >
           <div class="flex flex-row-reverse items-center">
-            {{project.name}}
+            {{project.title}}
             <vue-js-icon 
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'vue'"
+              v-if="project.icon === 'vue'"
+              :style="{fill: project.colors.title}"
             />
             <php-icon 
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'php'"
+              v-if="project.icon === 'php'"
+              :style="{fill: project.colors.title}"
             />
             <react-icon 
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'reactjs'"
+              v-if="project.icon === 'reactjs'"
+              :style="{fill: project.colors.title}"
             />
             <sass-icon
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'sass'"
+              v-if="project.icon === 'sass'"
+              :style="{fill: project.colors.title}"
             />
             <type-script-icon
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'typescript'"
+              v-if="project.icon === 'typescript'"
+              :style="{fill: project.colors.title}"
             />
             <svelte-icon
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'svelte'"
+              v-if="project.icon === 'svelte'"
+              :style="{fill: project.colors.title}"
             />
             <word-press-icon
               size="2x" 
               class="projects__item__icon mr-2"
-              v-if="project.id === 'wordpress'"
+              v-if="project.icon === 'wordpress'"
+              :style="{fill: project.colors.title}"
             />
           </div>
           <button 
@@ -67,9 +68,18 @@
             @click="$emit('overflow')"
           />
         </div>
-        <p class="project__item__name text-2xl font-semibold mt-2">dinerojs/dinero.js</p>
-        <p class="project__item__description text-sm mt-2">Create, calculate, and format money in JavaScript and TypeScript.</p>
-        <p class="project__item__date font-bold mt-2">01 Jan 2022</p>
+        <p 
+          class="project__item__subtitle text-2xl font-semibold mt-2"
+          v-html="project.subtitle"
+        />
+        <p 
+          class="project__item__description text-sm mt-2"
+          v-html="project.description"
+        />
+        <p 
+          class="project__item__information font-bold mt-2"
+          v-html="project.information"
+        />
       </li>
     </ul>
   </div>
@@ -85,7 +95,7 @@
 
     data(): any {
       return{
-        store: this.$store.state.data.portfolio,
+        store: this.$store.state.data.portfolio.language[0].pt,
         isActive: null as any,
       }
     },
@@ -114,18 +124,6 @@
         }
       }
     }
-
-    .projects__list {
-      .projects__item {
-        &:not(.projects__item--active) {
-          @screen md {
-            &:hover {
-              transform: scale(1) !important;
-            }
-          }
-        }
-      }
-    }
   }
 
   .projects__title {
@@ -137,12 +135,16 @@
       width: auto;
       z-index: 1;
       background: #201f22;
+      transform: scale(1);
+      transition: all .2s ease-in-out;
 
       @screen md {
         &:hover {
           box-shadow: 0px 0px 20px rgb(21, 21, 21);
           cursor: pointer;
           opacity: 1 !important;
+          transform: scale(1.1);
+          transition: all .2s ease-in-out;
         }
       }
 
@@ -150,22 +152,12 @@
         @apply mt-0;
       }
 
-      &:not(.projects__item--active) {
-        transition: all .2s ease-in-out;
-
-        @screen md {
-          &:hover {
-            transform: scale(1.1);
-          }
-        }
-      }
-
-      &.projects__item--active {
-        //variable
-        $decrease: 80px;
-        
+      &.projects__item--active {        
         box-shadow: none !important;
+        transform: scale(1) !important;
+        transition: none !important;
         cursor: auto !important;
+
         @apply mt-0 #{!important};
 
         .projects__item__close {
@@ -203,11 +195,15 @@
         }
       }
     
-      .projects__item__language{
+      .projects__item__title{
         font-size: 10px;
         letter-spacing: 3px;
 
-        &.projects__item__language--vue {
+        .projects__item__icon {
+          fill: #fff;
+        }
+        //remove
+        &.projects__item__title--vue {
           color: #42b883;
           
           .projects__item__icon {
@@ -215,7 +211,7 @@
           }
         }
         
-        &.projects__item__language--php {
+        &.projects__item__title--php {
           color: #7a86b8;
           
           .projects__item__icon {
@@ -223,7 +219,7 @@
           }
         }
         
-        &.projects__item__language--reactjs {
+        &.projects__item__title--reactjs {
           color: #61dafb;
           
           .projects__item__icon {
@@ -231,7 +227,7 @@
           }
         }
         
-        &.projects__item__language--sass {
+        &.projects__item__title--sass {
           color: #bf4080;
           
           .projects__item__icon {
@@ -239,7 +235,7 @@
           }
         }
         
-        &.projects__item__language--typescript {
+        &.projects__item__title--typescript {
           color: #ffd300;
           
           .projects__item__icon {
@@ -247,7 +243,7 @@
           }
         }
 
-        &.projects__item__language--svelte {
+        &.projects__item__title--svelte {
           color: #ff3e01;
           
           .projects__item__icon {
@@ -255,7 +251,7 @@
           }
         }
         
-        &.projects__item__language--wordpress {
+        &.projects__item__title--wordpress {
           color: #1b769c;
           
           .projects__item__icon {
@@ -264,13 +260,13 @@
         }
       }
     
-      .project__item__name {}
+      .project__item__subtitle {}
     
       .project__item__description {
         color: #949495;
       }
     
-      .project__item__date {
+      .project__item__information {
         color: #949495;
         letter-spacing: 1px;
         font-size: 10px;
