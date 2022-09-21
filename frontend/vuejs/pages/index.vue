@@ -21,7 +21,7 @@
       </div>
     </div>
     <div>
-      <Projects @overflow="overflowHidden" />
+      <Cards @overflow="overflowHidden" />
       <div>experience</div>
     </div>
   </div>
