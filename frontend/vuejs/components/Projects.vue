@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="projects" @click="$emit('overflow') "
+    class="projects"
     :class="isActive !== false  ? 'projects__has-modal' : ''"
   >
     <h2 class="projects__title text-xs font-semibold mt-2 uppercase block md:hidden mt-20 mb-8">Projects</h2>
@@ -11,8 +11,18 @@
         v-for="(project, i) in store.projects"
         :key="i"
         @click.stop="isActive = i"
+        @click="$emit('overflow')"
       >
-        <div class="projects__item__language font-bold uppercase flex relative">
+        <div 
+          class="projects__item__language font-bold uppercase flex relative"
+          :class="project.id === 'vue' ? 'projects__item__language--vue' :
+                  project.id === 'php' ? 'projects__item__language--php' : 
+                  project.id === 'reactjs' ? 'projects__item__language--reactjs' :
+                  project.id === 'sass' ? 'projects__item__language--sass' :
+                  project.id === 'typescript' ? 'projects__item__language--typescript' :
+                  project.id === 'svelte' ? 'projects__item__language--svelte' :
+                  project.id === 'wordpress' ? 'projects__item__language--wordpress' :''"
+        >
           <div class="flex flex-row-reverse items-center">
             {{project.name}}
             <vue-js-icon 
@@ -54,8 +64,8 @@
           <button 
             class="projects__item__close"
             @click.stop="isActive = false"
+            @click="$emit('overflow')"
           />
-          
         </div>
         <p class="project__item__name text-2xl font-semibold mt-2">dinerojs/dinero.js</p>
         <p class="project__item__description text-sm mt-2">Create, calculate, and format money in JavaScript and TypeScript.</p>
@@ -163,6 +173,7 @@
           cursor: pointer;
           right: -8px;
           top: 0px;
+          color: #fff;
 
           @screen md {
             right: -26px;
@@ -196,8 +207,60 @@
         font-size: 10px;
         letter-spacing: 3px;
 
-        .projects__item__icon {
-          fill: #fff;
+        &.projects__item__language--vue {
+          color: #42b883;
+          
+          .projects__item__icon {
+            fill: #42b883;
+          }
+        }
+        
+        &.projects__item__language--php {
+          color: #7a86b8;
+          
+          .projects__item__icon {
+            fill: #7a86b8;
+          }
+        }
+        
+        &.projects__item__language--reactjs {
+          color: #61dafb;
+          
+          .projects__item__icon {
+            fill: #61dafb;
+          }
+        }
+        
+        &.projects__item__language--sass {
+          color: #bf4080;
+          
+          .projects__item__icon {
+            fill: #bf4080;
+          }
+        }
+        
+        &.projects__item__language--typescript {
+          color: #ffd300;
+          
+          .projects__item__icon {
+            fill: #ffd300;
+          }
+        }
+
+        &.projects__item__language--svelte {
+          color: #ff3e01;
+          
+          .projects__item__icon {
+            fill: #ff3e01;
+          }
+        }
+        
+        &.projects__item__language--wordpress {
+          color: #1b769c;
+          
+          .projects__item__icon {
+            fill: #1b769c;
+          }
         }
       }
     

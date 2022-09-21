@@ -1,9 +1,9 @@
 export const state = () => ({
   portfolio: { 
     title: 'Jefferson Santos',
-    subtitle: 'Staff Software Engineer',
+    subtitle: 'FullStack Developer',
     description: `<p>I build open-source front-end libraries at <a href="#">Algolia</a> and host two tech podcasts: <a href="#">Developer Experience</a> and Entre Devs.</p>
-    <p>On my spare time, I share what I learn on my blog and speak at <a href="#">tech conferences</a> around the world.</p>`,
+    <p>On my spare time, I share what I learn on my blog and speak at <a href="#">tech conferences</a> around the world.</p> ###Cielo, ###Netflix, ###CVC, ###Submarino`,
     menu: [
       {
         id: 'projects',
