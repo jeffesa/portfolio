@@ -14,8 +14,7 @@
         @click="$emit('overflow')"
       >
         <div 
-          class="cards__item__title font-bold uppercase flex relative"
-          :style="{color: card.colors.title}"
+          class="cards__item__title uppercase flex relative"
         >
           <div class="flex flex-row-reverse items-center">
             <Icon 
@@ -164,6 +163,12 @@
       .cards__item__title {
         font-size: 10px;
         letter-spacing: 3px;
+
+        ::v-deep .icon__text {
+          letter-spacing: 3px;
+          @apply text-xs;
+          @apply font-bold #{!important};
+        }
       }
     
       .project__item__subtitle {}

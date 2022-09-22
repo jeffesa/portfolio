@@ -27,9 +27,23 @@ export const state = () => ({
           ],
           profile: {
             image: './profile/sarah-dayan.webp',
-            github: {
-              title: 'Github',
-              link: 'https:github.com'
+            networks: {
+              github: {
+                icon: 'github',
+                title: 'Github',
+                link: 'https://github.com',
+                colors: {
+                  title: '#ffffff'
+                }
+              },
+              linkedin: {
+                icon: 'linkedin',
+                title: 'Linkedin',
+                link: 'https://linkedin.com',
+                colors: {
+                  title: '#fff'
+                }
+              },
             }
           },
           projects: {
@@ -133,9 +147,23 @@ export const state = () => ({
           ],
           profile: {
             image: './profile/sarah-dayan.webp',
-            github: {
-              title: 'Github',
-              link: 'https:github.com'
+            networks: {
+              github: {
+                icon: 'github',
+                title: 'Github',
+                link: 'https://github.com',
+                colors: {
+                  title: '#ffffff'
+                }
+              },
+              linkedin: {
+                icon: 'linkedin',
+                title: 'Linkedin',
+                link: 'https://linkedin.com',
+                colors: {
+                  title: '#fff'
+                }
+              },
             }
           },
           projects: {
