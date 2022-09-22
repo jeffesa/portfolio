@@ -1,8 +1,9 @@
-export { default as Card } from '../../components/Card.vue'
 export { default as Menu } from '../../components/Menu.vue'
 export { default as NuxtLogo } from '../../components/NuxtLogo.vue'
 export { default as Profile } from '../../components/Profile.vue'
 export { default as Tutorial } from '../../components/Tutorial.vue'
+export { default as Cards } from '../../components/Cards/Cards.vue'
+export { default as CardsIconTitle } from '../../components/Cards/IconTitle.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

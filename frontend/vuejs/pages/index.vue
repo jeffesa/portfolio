@@ -41,7 +41,7 @@
           class="projects__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8"
           v-text="store.projects.title"
         />
-        <Card 
+        <Cards 
           :cards="store.projects.cards"
           @overflow="overflowHidden" 
         />
@@ -59,7 +59,7 @@ import { mapState } from 'vuex'
 export default {
     data(): any {
       return {
-        store: this.$store.state.data.portfolio.language[0].en,
+        store: this.$store.state.data.portfolio.language[0].en as Object,
         language: 'en' as string
       }
     },

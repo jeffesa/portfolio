@@ -1,7 +1,4 @@
 {
-  "Card": {
-    "description": "Auto imported from components/Card.vue"
-  },
   "Menu": {
     "description": "Auto imported from components/Menu.vue"
   },
@@ -13,5 +10,11 @@
   },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
+  },
+  "Cards": {
+    "description": "Auto imported from components/Cards/Cards.vue"
+  },
+  "CardsIconTitle": {
+    "description": "Auto imported from components/Cards/IconTitle.vue"
   }
 }
