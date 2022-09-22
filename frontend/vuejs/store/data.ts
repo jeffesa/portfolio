@@ -193,7 +193,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
-                link: 'https://jeffersonsantos.dev',
+                link: '',
                 colors: {
                   title: '#7a86b8'
                 }

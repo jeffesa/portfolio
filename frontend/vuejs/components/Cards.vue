@@ -7,11 +7,11 @@
     <ul class="cards__list">
       <li 
         class="cards__item p-6 md:p-10 my-2"
-        :class="i === isActive ? 'cards__item--active' : ''"
+        :class="i === isActive && (card.link === '' || card.link === null) ? 'cards__item--active' : ''"
         v-for="(card, i) in cards"
         :key="i"
         @click.stop="isActive = i"
-        @click="$emit('overflow')"
+        @click="openLink(card.link)"
       >
         <div 
           class="cards__item__title uppercase flex relative"
@@ -68,6 +68,16 @@
         isActive: null as any,
       }
     },
+
+    methods: {
+      openLink(link: string): any {
+        if (link) {
+          window.open(link, '_blank')
+        } else {
+          this.$emit('overflow')
+        }
+      }
+    }
   }
 </script>
 

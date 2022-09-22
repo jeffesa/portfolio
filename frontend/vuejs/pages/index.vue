@@ -66,7 +66,6 @@ export default {
 
     methods: {
       overflowHidden(): any {
-        console.log('blabla')
         const body: any =  document.getElementsByTagName('body')[0]
         if (body.style.overflow !== 'hidden') {
           body.style.overflow = "hidden"
@@ -74,6 +73,7 @@ export default {
           body.style.overflow = "auto"
         }
       },
+
       setLanguage(lang: string): any {
         this.language = lang
         this.store = lang === 'pt' ? this.$store.state.data.portfolio.language[0].pt : this.$store.state.data.portfolio.language[0].en
