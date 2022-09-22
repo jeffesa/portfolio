@@ -29,3 +29,5 @@ babel_cache/
 ehthumbs.db
 Thumbs.db
 db/
+frontend/vuejs/.nuxt/
+.nuxt/
