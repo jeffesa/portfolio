@@ -18,13 +18,13 @@
           :style="{color: card.colors.title}"
         >
           <div class="flex flex-row-reverse items-center">
-            <IconTitle 
+            <Icon 
               class="mr-2"
               :icon="card.icon" v-if="card.icon"
               :color="card.colors.title"
             >
               {{card.title}}
-            </IconTitle>
+            </Icon>
           </div>
           <button 
             class="cards__item__close"
@@ -50,11 +50,11 @@
 </template>
 
 <script lang="ts">
-  import IconTitle from './IconTitle'
+  import Icon from './Icon'
 
   export default {
     components: { 
-      IconTitle
+      Icon
     },
 
     props: {
