@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-  import Icon from './Cards/Icon'
+  import Icon from './shared/Icon'
 
   export default {
     components: { 

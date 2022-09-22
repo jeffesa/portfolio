@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-  import Icon from './Icon'
+  import Icon from './shared/Icon'
 
   export default {
     components: { 

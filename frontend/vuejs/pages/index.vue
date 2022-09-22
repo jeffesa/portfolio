@@ -35,10 +35,10 @@
         <Profile :profile="store.profile" />
       </div>
     </div>
-    <div class="projects__projects">
+    <div class="portfolio__projects">
       <div>
         <h2 
-          class="projects__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8"
+          class="portfolio__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8"
           v-text="store.projects.title"
         />
         <Cards 
@@ -125,8 +125,8 @@ export default {
     }
   }
 
-  .projects__projects {
-    .projects__projects__title {
+  .portfolio__projects {
+    .portfolio__projects__title {
       letter-spacing: 3px;
     }
   }

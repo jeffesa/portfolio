@@ -55,6 +55,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#42b883'
                 }
@@ -65,6 +66,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#7a86b8'
                 }
@@ -75,6 +77,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#61dafb'
                 }
@@ -85,6 +88,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#bf4080'
                 }
@@ -95,6 +99,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#ffd300'
                 }
@@ -105,6 +110,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#ff3e01'
                 }
@@ -115,6 +121,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#1b769c'
                 }
@@ -175,6 +182,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#42b883'
                 }
@@ -185,6 +193,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#7a86b8'
                 }
@@ -195,6 +204,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#61dafb'
                 }
@@ -205,6 +215,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#bf4080'
                 }
@@ -215,6 +226,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#ffd300'
                 }
@@ -225,6 +237,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#ff3e01'
                 }
@@ -235,6 +248,7 @@ export const state = () => ({
                 subtitle: 'dinerojs/dinero.js',
                 description: 'Create, calculate, and format money in JavaScript and TypeScript.',
                 information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
                 colors: {
                   title: '#1b769c'
                 }
