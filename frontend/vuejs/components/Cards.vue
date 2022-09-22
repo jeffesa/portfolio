@@ -1,7 +1,7 @@
 <template>
   <div 
     class="cards"
-    :class="isActive !== false  ? 'cards__has-modal' : ''"
+    :class="isActive !== null  ? 'cards__has-modal' : ''"
     v-if="cards"
   >
     <ul class="cards__list">
@@ -27,7 +27,7 @@
           </div>
           <button 
             class="cards__item__close"
-            @click.stop="isActive = false"
+            @click.stop="isActive = null"
             @click="$emit('overflow')"
           />
         </div>
