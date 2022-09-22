@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio relative grid grid-cols-1 md:grid-cols-2 p-6 md:p-20 h-full">
-    <div class="portfolio__language absolute flex md:pr-20 text-xs font-normal">
+    <div class="portfolio__language absolute flex pr-6 md:pr-20  text-xs font-normal z-10">
       <span 
         class="pr-2"
         :class="language === 'pt' ? 'portfolio__language--active' : ''"
