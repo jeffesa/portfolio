@@ -128,7 +128,8 @@
         @apply mt-0;
       }
 
-      &.cards__item--active {        
+      &.cards__item--active {      
+        z-index: 10;  
         box-shadow: none !important;
         transform: scale(1) !important;
         transition: none !important;
@@ -157,7 +158,7 @@
           }
         }
 
-        position: fixed;
+        position: fixed !important;
         width: 100%;
         height: 100%;
         left: 0;

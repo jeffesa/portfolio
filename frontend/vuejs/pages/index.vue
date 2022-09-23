@@ -35,18 +35,31 @@
         <Profile :profile="store.profile" />
       </div>
     </div>
-    <div class="portfolio__experiences">
-      <div>
-        <h2 
-          class="portfolio__experiences__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
-          v-text="store.experiences.title"
-        />
-        <Cards 
-          :cards="store.experiences.cards"
-          @overflow="overflowHidden" 
-        />
+    <div class="pb-6 md:pb-20">
+      <div class="portfolio__experiences">
+        <div>
+          <h2 
+            class="portfolio__experiences__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
+            v-text="store.experiences.title"
+          />
+          <Cards 
+            :cards="store.experiences.cards"
+            @overflow="overflowHidden" 
+          />
+        </div>
       </div>
-      <div>experience</div>
+      <div class="portfolio__projects pt-8 md:pt-10">
+        <div>
+          <h2 
+            class="portfolio__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
+            v-text="store.experiences.title"
+          />
+          <Cards 
+            :cards="store.projects.cards"
+            @overflow="overflowHidden" 
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -128,6 +141,52 @@ export default {
   .portfolio__experiences {
     .portfolio__experiences__title {
       letter-spacing: 3px;
+    }
+  }
+
+  .portfolio__projects {
+    .portfolio__projects__title {
+      letter-spacing: 3px;
+    }
+
+    ::v-deep {
+      .portfolio__projects__title {
+        @apply mt-0;
+      }
+
+      .cards__list {
+        display: grid;
+        grid-template-columns: 100%;
+
+        @screen md {
+          grid-template-columns: 50% 50%;
+        }
+
+        .cards__item:nth-child(2n + 1) {
+          //background: red !important;
+          @apply mt-0;
+          @apply mb-2;
+          @apply mr-0;
+
+          @screen md {
+            @apply mr-1 #{!important};
+          }
+        }
+
+        .cards__item:nth-child(2n + 2) {
+          //background: blue !important;
+          @apply relative;
+          @apply top-0;
+          @apply mt-0;
+          @apply mb-2;
+          @apply ml-0;
+
+          @screen md {
+            @apply ml-1;
+            @apply top-10;
+          }
+        }
+      }
     }
   }
 }

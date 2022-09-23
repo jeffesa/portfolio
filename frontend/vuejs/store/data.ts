@@ -123,7 +123,89 @@ export const state = () => ({
                 }
               },
             ]
-          }
+          },
+          projects: {
+            title: 'projects',
+            cards: [
+              {
+                icon: 'vue',
+                title: 'VueJs',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
+                colors: {
+                  title: '#42b883'
+                }
+              },
+              {
+                icon: 'php',
+                title: 'PHP',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: '',
+                colors: {
+                  title: '#7a86b8'
+                }
+              },
+              {
+                icon: 'reactjs',
+                title: 'ReactJs',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
+                colors: {
+                  title: '#61dafb'
+                }
+              },
+              {
+                icon: 'sass',
+                title: 'Sass',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
+                colors: {
+                  title: '#bf4080'
+                }
+              },
+              {
+                icon: 'typescript',
+                title: 'TypeScript',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
+                colors: {
+                  title: '#ffd300'
+                }
+              },
+              {
+                icon: 'svelte',
+                title: 'Svelte',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
+                colors: {
+                  title: '#ff3e01'
+                }
+              },
+              {
+                icon: 'wordpress',
+                title: 'Wordpress',
+                subtitle: 'dinerojs/dinero.js',
+                description: 'Create, calculate, and format money in JavaScript and TypeScript.',
+                information: 'September 13, 2022',
+                link: 'https://jeffersonsantos.dev',
+                colors: {
+                  title: '#1b769c'
+                }
+              },
+            ]
+          },
         },
       }
     ]
