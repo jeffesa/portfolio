@@ -72,6 +72,7 @@
     methods: {
       openLink(link: string): any {
         if (link) {
+          this.isActive = null
           window.open(link, '_blank')
         } else {
           this.$emit('overflow')
