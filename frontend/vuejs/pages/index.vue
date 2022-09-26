@@ -186,6 +186,18 @@ export default {
             @apply top-10;
           }
         }
+
+        .cards__item__subtitle {
+          color: #949495;
+          @apply text-base;
+        }
+
+        .cards__item__description {
+          color: #fff;
+          @apply text-lg;
+          @apply font-semibold;
+          @apply leading-6;
+        }
       }
     }
   }

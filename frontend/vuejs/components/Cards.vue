@@ -32,16 +32,19 @@
           />
         </div>
         <p 
-          class="project__item__subtitle text-2xl font-semibold mt-2"
+          class="cards__item__subtitle text-2xl font-semibold mt-2"
           v-html="card.subtitle"
+          :style="{color: card.colors.subtitle}"
         />
         <p 
-          class="project__item__description text-sm mt-2"
+          class="cards__item__description text-sm mt-2"
           v-html="card.description"
+          :style="{color: card.colors.description}" style="color: red;"
         />
         <p 
-          class="project__item__information font-bold mt-2"
+          class="cards__item__information font-bold mt-2"
           v-html="card.information"
+          :style="{color: card.colors.information}"
         />
       </li>
     </ul>
@@ -183,13 +186,17 @@
         }
       }
     
-      .project__item__subtitle {}
+      .cards__item__subtitle {}
     
-      .project__item__description {
+      .cards__item__description {
         color: #949495;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
       }
     
-      .project__item__information {
+      .cards__item__information {
         color: #949495;
         letter-spacing: 1px;
         font-size: 10px;
