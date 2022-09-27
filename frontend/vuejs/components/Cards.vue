@@ -14,7 +14,7 @@
         @click="openLink(card.link)"
       >
         <div 
-          class="cards__item__title uppercase flex relative"
+          class="cards__item__title uppercase flex relative z-10"
         >
           <div class="flex flex-row-reverse items-center">
             <Icon 
@@ -32,17 +32,17 @@
           />
         </div>
         <p 
-          class="cards__item__subtitle text-2xl font-semibold mt-2"
+          class="cards__item__subtitle text-2xl font-semibold mt-2 relative z-10"
           v-html="card.subtitle"
           :style="{color: card.colors.subtitle}"
         />
         <p 
-          class="cards__item__description text-sm mt-2"
+          class="cards__item__description text-sm mt-2 relative z-10"
           v-html="card.description"
-          :style="{color: card.colors.description}" style="color: red;"
+          :style="{color: card.colors.description}"
         />
         <p 
-          class="cards__item__information font-bold mt-2"
+          class="cards__item__information font-bold mt-2 relative z-10"
           v-html="card.information"
           :style="{color: card.colors.information}"
         />
@@ -104,10 +104,32 @@
 
   &.cards__has-modal {
     @screen md {
-      &:hover {
-        .cards__list {
-          .cards__item {
+      .cards__list {
+        .cards__item {
+          &:hover {
             opacity: 1 !important;
+          }
+
+          &.cards__item--active {
+            &::before {
+              content: "";
+              position: absolute;
+              width: calc(100% + 160px);
+              height: calc(100% + 160px);
+              background: rgba(#201f22, .5);
+              top: calc(0px - 80px);
+              left: calc(0px - 80px);
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: #201f22;
+              left: 0;
+              top: 0;
+            }
           }
         }
       }

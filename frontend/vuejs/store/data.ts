@@ -115,7 +115,7 @@ const portfolio: any = {
               subtitle: 'Desenvolvimento de temas e plugins',
               description: 'Desde 2016 eu estou trabalhando na manutenção e criação de temas dos zero. Tive a oportunidade de trabalhar no desenvolvimento do blog da Cielo e outras empresas.',
               information: 'Since 2016',
-              link: 'https://jeffersonsantos.dev',
+              link: '',
               colors: {
                 title: '#1b769c'
               }
@@ -286,7 +286,7 @@ const portfolio: any = {
               subtitle: 'Produtividade',
               description: 'Trabalhei em diversos projetos já com SASS implementado, mas também trabalhei no desenvolvimento criando recursos com purgecss e minify, dentro de uma estrutura com metodologia BEM CSS.',
               information: 'Since 2019',
-              link: 'https://jeffersonsantos.dev',
+              link: '',
               colors: {
                 title: '#bf4080'
               }
@@ -368,7 +368,7 @@ const portfolio: any = {
               subtitle: 'dinerojs/dinero.js',
               description: 'Create, calculate, and format money in JavaScript and TypeScript.',
               information: 'September 13, 2022',
-              link: 'https://jeffersonsantos.dev',
+              link: '',
               colors: {
                 title: '#bf4080'
               }
@@ -401,7 +401,7 @@ const portfolio: any = {
               subtitle: 'dinerojs/dinero.js',
               description: 'Create, calculate, and format money in JavaScript and TypeScript.',
               information: 'September 13, 2022',
-              link: 'https://jeffersonsantos.dev',
+              link: '',
               colors: {
                 title: '#1b769c'
               }
