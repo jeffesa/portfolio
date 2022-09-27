@@ -47,7 +47,7 @@ const portfolio: any = {
               icon: 'vue',
               title: 'VueJs',
               subtitle: 'Novos ares',
-              description: 'Mesmo trabalhando no backend, com frequencia eu trabalhei também em tarefas no frontend, tanto em soluções que envolviam terminais POS, quando em blogs, sites, landing pages, etc. A partir de 2019, comecei a me dedicar na programação voltada no frontend. Desde então trabalhei em projetos para grandes empresas como, Cielo, CVC, Submarino, Netflix, Citroën',
+              description: 'Desde 2007 trabalhei focado no backend, mas com frequencia eu tinha demandas no frontend, tanto em soluções que envolviam terminais POS, quando em blogs, sites, landing pages, etc. A partir de 2019, comecei a me dedicar na programação voltada no frontend. Desde então trabalhei em projetos para grandes empresas tais como, Cielo, CVC, Submarino, Netflix, Citroën',
               information: 'Since 2019',
               link: '',
               colors: {
@@ -112,7 +112,7 @@ const portfolio: any = {
             {
               icon: 'wordpress',
               title: 'Wordpress',
-              subtitle: 'dinerojs/dinero.js',
+              subtitle: 'Desenvolvimento de temas e plugins',
               description: 'Desde 2016 eu estou trabalhando na manutenção e criação de temas dos zero. Tive a oportunidade de trabalhar no desenvolvimento do blog da Cielo e outras empresas.',
               information: 'Since 2016',
               link: 'https://jeffersonsantos.dev',
@@ -208,8 +208,7 @@ const portfolio: any = {
       pt: {
         title: 'Jefferson Santos',
         subtitle: 'FullStack Developer',
-        description: `<p>Eu comecei a trabalhar como programador em 2007, desde então tive a o portunidade de trabalhar com diversas soluções simples e mais complexas como aplicações em terminais POS para gerenciamento e impressão de ingressos.</p>
-        <p>On my spare time, I share what I learn on my blog and speak at <a href="#">tech conferences</a> around the world.</p> ###Cielo, ###Netflix, ###CVC, ###Submarino EN`,
+        description: `<p>Eu comecei a trabalhar como programador em 2007, desde então tive a o portunidade de trabalhar com diversas soluções simples e mais complexas como aplicações em terminais POS para gerenciamento e impressão de ingressos. A partir de 2019 comecei a trabalhar focado no frontend com linguages e frameworks, tais como, Vuejs, ReactJs, Handlebars, Typescript e muito mais.</p>`,
         menu: [
           {
             id: 'experiences',
@@ -252,7 +251,7 @@ const portfolio: any = {
               icon: 'vue',
               title: 'VueJs',
               subtitle: 'Novos ares',
-              description: 'Mesmo trabalhando no backend, com frequencia eu trabalhei também em tarefas no frontend, tanto em soluções que envolviam terminais POS, quando em blogs, sites, landing pages, etc. A partir de 2019, comecei a me dedicar na programação voltada no frontend. Desde então trabalhei em projetos para grandes empresas como, Cielo, CVC, Submarino, Netflix, Citroën',
+              description: 'Desde 2007 trabalhei focado no backend, mas com frequencia eu tinha demandas no frontend, tanto em soluções que envolviam terminais POS, quando em blogs, sites, landing pages, etc. A partir de 2019, comecei a me dedicar na programação voltada no frontend. Desde então trabalhei em projetos para grandes empresas tais como, Cielo, CVC, Submarino, Netflix, Citroën',
               information: 'Since 2019',
               link: '',
               colors: {
@@ -317,7 +316,7 @@ const portfolio: any = {
             {
               icon: 'wordpress',
               title: 'Wordpress',
-              subtitle: 'dinerojs/dinero.js',
+              subtitle: 'Desenvolvimento de temas e plugins',
               description: 'Desde 2016 eu estou trabalhando na manutenção e criação de temas dos zero. Tive a oportunidade de trabalhar no desenvolvimento do blog da Cielo e outras empresas.',
               information: 'Since 2016',
               link: '',

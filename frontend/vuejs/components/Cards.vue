@@ -1,16 +1,16 @@
 <template>
   <div 
     class="cards"
-    :class="isActive !== null  ? 'cards__has-modal' : ''"
+    :class="modalActive !== null  ? 'cards__has-modal' : ''"
     v-if="cards"
   >
     <ul class="cards__list">
       <li 
         class="cards__item p-6 md:p-10 my-2"
-        :class="i === isActive && (card.link === '' || card.link === null) ? 'cards__item--active' : ''"
+        :class="i === modalActive && (card.link === '' || card.link === null) ? 'cards__item--active' : ''"
         v-for="(card, i) in cards"
         :key="i"
-        @click.stop="isActive = i"
+        @click.stop="modalActive = i"
         @click="openLink(card.link)"
       >
         <div 
@@ -27,7 +27,7 @@
           </div>
           <button 
             class="cards__item__close"
-            @click.stop="isActive = null"
+            @click.stop="(modalActive = null, isModalOpen = false)"
             @click="$emit('overflow')"
           />
         </div>
@@ -68,17 +68,22 @@
 
     data(): any {
       return{
-        isActive: null as any,
+        modalActive: null as any,
+        isModalOpen: false as boolean
       }
     },
 
     methods: {
       openLink(link: string): any {
         if (link) {
-          this.isActive = null
+          this.modalActive = null
           window.open(link, '_blank')
+          console.log('open')
         } else {
-          this.$emit('overflow')
+          if (this.isModalOpen !== true) {
+            this.isModalOpen = true
+            this.$emit('overflow')
+          }
         }
       }
     }
