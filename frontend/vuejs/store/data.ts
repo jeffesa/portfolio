@@ -2,7 +2,7 @@ const portfolio: any = {
   language: [
     {
       en: {
-        title: 'Jefferson Santos',
+        title: 'Jefferson Santos EN',
         subtitle: 'FullStack Developer',
         description: `<p>Eu comecei a trabalhar como programador em 2007, desde então tive a o portunidade de trabalhar com diversas soluções simples e mais complexas como aplicações em terminais POS para gerenciamento e impressão de ingressos. A partir de 2019 comecei a trabalhar focado no frontend com linguages e frameworks, tais como, Vuejs, ReactJs, Handlebars, Typescript e muito mais.</p>`,
         menu: [
@@ -206,7 +206,7 @@ const portfolio: any = {
         },
       },
       pt: {
-        title: 'Jefferson Santos',
+        title: 'Jefferson Santos PT',
         subtitle: 'FullStack Developer',
         description: `<p>Eu comecei a trabalhar como programador em 2007, desde então tive a o portunidade de trabalhar com diversas soluções simples e mais complexas como aplicações em terminais POS para gerenciamento e impressão de ingressos. A partir de 2019 comecei a trabalhar focado no frontend com linguages e frameworks, tais como, Vuejs, ReactJs, Handlebars, Typescript e muito mais.</p>`,
         menu: [
@@ -413,7 +413,7 @@ const portfolio: any = {
   ]
 }
 
-portfolio.language.map(lg => {
+portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { cards: any[] } }; pt: { projects: { cards: any[] }; experiences: { cards: any[] } } }) => {
   lg.en.projects.cards.map(cd => {
     cd.colors.information = cd.colors.title
     return cd

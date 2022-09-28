@@ -61,17 +61,8 @@
 </template>
 
 <script lang="ts">
-  import { 
-    VueJsIcon, 
-    PhpIcon, 
-    ReactIcon, 
-    SassIcon, 
-    TypeScriptIcon, 
-    SvelteIcon, 
-    WordPressIcon,
-    LinkedInIcon,
-    GitHubIcon
-  } from 'vue-simple-icons'
+  //@ts-ignore
+  import { VueJsIcon, PhpIcon, ReactIcon, SassIcon, TypeScriptIcon, SvelteIcon, WordPressIcon, LinkedInIcon, GitHubIcon } from 'vue-simple-icons'
 
   export default {
     components: { 

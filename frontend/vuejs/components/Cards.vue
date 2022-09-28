@@ -52,6 +52,7 @@
 </template>
 
 <script lang="ts">
+  //@ts-ignore
   import Icon from './shared/Icon'
 
   export default {
@@ -206,7 +207,7 @@
         font-size: 10px;
         letter-spacing: 3px;
 
-        ::v-deep .icon__text {
+        :deep .icon__text {
           letter-spacing: 3px;
           @apply text-xs;
           @apply font-bold #{!important};

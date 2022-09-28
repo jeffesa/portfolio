@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+  //@ts-ignore
   import Icon from './shared/Icon'
 
   export default {
@@ -56,7 +57,7 @@
       .profile__networks__icon {
         @apply mr-0;
 
-        ::v-deep {
+        :deep {
           .icon__language {
             width: 16px;
             height: 16px;

@@ -131,7 +131,7 @@ export default {
       color: #878788;
       line-height: 2;
 
-      ::v-deep a {
+      :deep a {
         color: #fff;
         text-decoration-line: underline;
       }
@@ -149,7 +149,7 @@ export default {
       letter-spacing: 3px;
     }
 
-    ::v-deep {
+    :deep {
       .portfolio__projects__title {
         @apply mt-0;
       }
