@@ -36,14 +36,32 @@
       </div>
     </div>
     <div class="pb-6 md:pb-20">
-      <div class="portfolio__experiences">
+      <div 
+        v-for="(section, i) in store.sections" 
+        :key="i"
+        :class="[`portfolio__${section.id}`, section.id === 'projects' ? 'pt-8 md:pt-10' : '']"
+        v-if="section.id !== 'contact'"
+        :id="section.id"
+      >
+        <div>
+          <h2 
+            :class="`portfolio__${section.id}__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden`"
+            v-text="section.title"
+          />
+          <Cards 
+            :cards="section.cards"
+            @overflow="overflowHidden" 
+          />
+        </div>
+      </div>
+      <!-- <div class="portfolio__experiences">
         <div>
           <h2 
             class="portfolio__experiences__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
-            v-text="store.experiences.title"
+            v-text="store.sections.experiences.title"
           />
           <Cards 
-            :cards="store.experiences.cards"
+            :cards="store.sections.experiences.cards"
             @overflow="overflowHidden" 
           />
         </div>
@@ -52,14 +70,14 @@
         <div>
           <h2 
             class="portfolio__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
-            v-text="store.experiences.title"
+            v-text="store.sections.experiences.title"
           />
           <Cards 
-            :cards="store.projects.cards"
+            :cards="store.sections.projects.cards"
             @overflow="overflowHidden" 
           />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

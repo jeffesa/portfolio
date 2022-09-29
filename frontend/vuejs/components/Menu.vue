@@ -11,7 +11,7 @@
           :key="i"
         >
           <a 
-            href="#"
+            :href="`#${item.id}`"
             class="menu__item__link flex items-center" 
             :class="i === isActive ? 'menu__item__link--active' : ''"
             @click="isActive = i"
