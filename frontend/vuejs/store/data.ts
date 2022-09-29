@@ -5,20 +5,6 @@ const portfolio: any = {
         title: 'Jefferson Santos',
         subtitle: 'FullStack Developer',
         description: `<p>Eu comecei a trabalhar como programador em 2007, desde então tive a o portunidade de trabalhar com diversas soluções simples e mais complexas como aplicações em terminais POS para gerenciamento e impressão de ingressos. A partir de 2019 comecei a trabalhar focado no frontend com linguages e frameworks, tais como, Vuejs, ReactJs, Handlebars, Typescript e muito mais.</p>`,
-        // menu: [
-        //   {
-        //     id: 'experiences',
-        //     name: 'Experiences'
-        //   },
-        //   {
-        //     id: 'projects',
-        //     name: 'Projects'
-        //   },
-        //   {
-        //     id: 'contact',
-        //     name: 'Contact'
-        //   },
-        // ],
         profile: {
           image: './profile/jefferson-santos.jpeg',
           networks: {
@@ -217,20 +203,6 @@ const portfolio: any = {
         title: 'Jefferson Santos',
         subtitle: 'FullStack Developer',
         description: `<p>Eu comecei a trabalhar como programador em 2007, desde então tive a o portunidade de trabalhar com diversas soluções simples e mais complexas como aplicações em terminais POS para gerenciamento e impressão de ingressos. A partir de 2019 comecei a trabalhar focado no frontend com linguages e frameworks, tais como, Vuejs, ReactJs, Handlebars, Typescript e muito mais.</p>`,
-        // menu: [
-        //   {
-        //     id: 'experiences',
-        //     name: 'Experiences'
-        //   },
-        //   {
-        //     id: 'projects',
-        //     name: 'Projects'
-        //   },
-        //   {
-        //     id: 'contact',
-        //     name: 'Contact'
-        //   },
-        // ],
         profile: {
           image: './profile/jefferson-santos.jpeg',
           networks: {
@@ -430,23 +402,6 @@ const portfolio: any = {
 }
 
 portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { cards: any[] } }; pt: { projects: { cards: any[] }; experiences: { cards: any[] } } }) => {
-  // lg.en.sections.projects.cards.map(cd => {
-  //   cd.colors.information = cd.colors.title
-  //   return cd
-  // })
-  // lg.en.sections.experiences.cards.map(cd => {
-  //   cd.colors.information = cd.colors.title
-  //   return cd
-  // })
-  // lg.pt.sections.projects.cards.map(cd => {
-  //   cd.colors.information = cd.colors.title
-  //   return cd
-  // })
-  // lg.pt.sections.experiences.cards.map(cd => {
-  //   cd.colors.information = cd.colors.title
-  //   return cd
-  // })
-
   let menu: { id: any; name: any; }[] = []
 
   lg.en.sections.map(cd => {
@@ -471,9 +426,11 @@ portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { c
     }
     return cd
   })
+  
   lg.en.menu = menu.splice(0,lg.pt.sections.length)
 
   menu = []
+
   lg.pt.sections.map(cd => {
     if (cd.id !== 'contact') {
       cd.cards.map(cl => {
@@ -496,32 +453,8 @@ portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { c
     }
     return cd
   })
+
   lg.pt.menu = menu.splice(0, lg.pt.sections.length)
-
-
-  // lg.en.sectionsRenamed.cards.map(cd => {
-  //   //cd.colors.information = cd.colors.title
-  //   return cd
-  // })
-  
-
-  
-//   console.clear()
-//   console.log('blabla')
-//   console.log(lg.en.sections)
-//   let object = lg.en.sections
-// 
-//   console.log(object)
-
-  // Object.keys(object).forEach(function (key) {
-  //   let section = object[key];
-  //   if (section.id === 'experiences' || section.id === 'projects') {
-  //     section.menu = {
-  //       id: section.id,
-  //       name: section.title
-  //     }
-  //   }
-  // });
 
   return lg
 })

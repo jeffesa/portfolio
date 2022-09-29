@@ -54,39 +54,11 @@
           />
         </div>
       </div>
-      <!-- <div class="portfolio__experiences">
-        <div>
-          <h2 
-            class="portfolio__experiences__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
-            v-text="store.sections.experiences.title"
-          />
-          <Cards 
-            :cards="store.sections.experiences.cards"
-            @overflow="overflowHidden" 
-          />
-        </div>
-      </div>
-      <div class="portfolio__projects pt-8 md:pt-10">
-        <div>
-          <h2 
-            class="portfolio__projects__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden"
-            v-text="store.sections.experiences.title"
-          />
-          <Cards 
-            :cards="store.sections.projects.cards"
-            @overflow="overflowHidden" 
-          />
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { mapMutations } from 'vuex'
-import { mapState } from 'vuex'
-
 export default {
     data(): any {
       return {
