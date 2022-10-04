@@ -107,51 +107,14 @@ export default {
         sections.forEach((el, i) => {
           let sectionCurrent = document.getElementsByTagName('section')[i]
           let sectionNext = document.getElementsByTagName('section')[i + 1]
-          //let sectionBotton = document.getElementById(el.id).offsetTop + document.getElementById(el.id).offsetHeight
-
           if (sectionCurrent !== undefined && sectionNext !== undefined) {
-            //if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight <= posFloor && sectionCurrent.offsetTop + sectionCurrent.offsetHeight <= sectionNext.offsetTop + sectionNext.offsetHeight) {
             if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight >= posFloor ) {
-              // console.log(sectionCurrent)
-              // console.log(sectionNext)
-              console.log(sectionCurrent.id) 
               this.menuActive = sectionCurrent.id
             } else {
               this.menuActive = sectionNext.id
-              console.log(sectionNext.id)
             }
           }
-
-
-          // //console.log(this.store.menu)
-          // console.log(el.offsetTop + el.offsetHeight + " - " + posFloor)
-          // if (posFloor <= el.offsetTop + el.offsetHeight ) {
-          //   console.log('continuar')
-          // } else {
-          //   console.log('mudar')
-          // }
-          // //console.log(el.id)
         });
-
-        //console.log(menu[0].id)
-
-//         menu.forEach((el, i) => {
-//           if (document.getElementById(el.id)) {
-//             let sectionCurrent = document.getElementById(el.id).offsetTop + document.getElementById(el.id).offsetHeight
-//             let sectionPrevious = document.getElementById(el.id).offsetTop + document.getElementById(el.id).offsetHeight
-//             
-//             // if (posFloor <= sectionBotton && posFloor + sectionBotton >= posFloor + sectionBotton && document.getElementById(el.id).id === menu[i].id) {
-//             //   console.log('mudar para: ' + document.getElementById(el.id).id)
-//             //   
-//             // }
-// 
-//             console.log('posFloor: ' + posFloor)
-//             console.log('sectionBotton: ' + sectionBotton)
-//             console.log('posFloor + sectionBotton: ' + (posFloor + sectionBotton))
-//           }
-//         })
-
-        
       }
     },
   }
