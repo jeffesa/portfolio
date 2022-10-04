@@ -93,6 +93,8 @@
 
 <style lang="scss" scoped>
 .cards {
+  $modal_decrease_size: 300px;
+
   @screen md {
     &:hover {
       .cards__list {
@@ -115,11 +117,11 @@
             &::before {
               content: "";
               position: absolute;
-              width: calc(100% + 160px);
-              height: calc(100% + 160px);
-              background: rgba(#201f22, .5);
-              top: calc(0px - 80px);
-              left: calc(0px - 80px);
+              width: calc(100vw + $modal_decrease_size);
+              height: calc(100vw + $modal_decrease_size);
+              background: rgba(#fff, .4);
+              top: - $modal_decrease_size;
+              left: - $modal_decrease_size;
             }
 
             &::after {
@@ -196,10 +198,10 @@
         top: 0;
 
         @screen md {
-          width: calc(100% - 160px);
-          height: calc(100% - 160px);
-          left: 80px;
-          top: calc(0px + 80px);
+          width: calc(100% - $modal_decrease_size);
+          height: calc(100% - $modal_decrease_size);
+          left: $modal_decrease_size/2;
+          top: $modal_decrease_size/2;
         }
       }
     
