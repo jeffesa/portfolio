@@ -13,8 +13,8 @@
           <a 
             :href="`#${item.id}`"
             class="menu__item__link flex items-center" 
-            :class="i === isActive ? 'menu__item__link--active' : ''"
-            @click="isActive = i"
+            :class="(i === 0 && menuActive === '') || (item.id === isActive && isActive === 0) || menuActive === item.id ? 'menu__item__link--active' : ''"
+            @click="isActive = item.id"
           >
             <span 
               class="text-xs"
@@ -37,6 +37,10 @@
     props: {
       menu: {
         type: Array,
+        required: true
+      },
+      menuActive: {
+        type: String,
         required: true
       }
     },

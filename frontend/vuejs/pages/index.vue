@@ -30,18 +30,22 @@
             class="portfolio__description text-sm mt-8"
             v-html="store.description"
           />
-          <Menu :menu="store.menu" />
+          <Menu 
+            :menu="store.menu" 
+            :menuActive="menuActive"
+          />
         </div>
         <Profile :profile="store.profile" />
       </div>
     </div>
     <div class="pb-6 md:pb-20">
-      <div 
+      <section 
         v-for="(section, i) in store.sections" 
         :key="i"
         :class="[`portfolio__${section.id}`, section.id === 'projects' ? 'pt-8 md:pt-10' : '']"
         v-if="section.id !== 'contact'"
         :id="section.id"
+        v-scroll="scrollHandler"
       >
         <div>
           <h2 
@@ -53,7 +57,7 @@
             @overflow="overflowHidden" 
           />
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
@@ -63,7 +67,19 @@ export default {
     data(): any {
       return {
         store: this.$store.state.data.portfolio.language[0].en as Object,
-        language: 'en' as string
+        language: 'en' as string,
+        menuActive: '' as string
+      }
+    },
+
+    mounted () {
+      if(process.browser){
+        window.addEventListener('scroll', this.scrollHandler)
+      }
+    },
+    destroyed () {
+      if(process.browser){
+        window.removeEventListener('scroll', this.scrollHandler)
       }
     },
 
@@ -80,8 +96,64 @@ export default {
       setLanguage(lang: string): any {
         this.language = lang
         this.store = lang === 'pt' ? this.$store.state.data.portfolio.language[0].pt : this.$store.state.data.portfolio.language[0].en
+      },
+
+      scrollHandler(): any {
+        let sections = [...document.getElementsByTagName('section')];
+        let divPortfolio = document.querySelector('.portfolio')
+        let posFloor = window.pageYOffset + divPortfolio.offsetHeight
+        let menu = this.store.menu
+
+        sections.forEach((el, i) => {
+          let sectionCurrent = document.getElementsByTagName('section')[i]
+          let sectionNext = document.getElementsByTagName('section')[i + 1]
+          //let sectionBotton = document.getElementById(el.id).offsetTop + document.getElementById(el.id).offsetHeight
+
+          if (sectionCurrent !== undefined && sectionNext !== undefined) {
+            //if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight <= posFloor && sectionCurrent.offsetTop + sectionCurrent.offsetHeight <= sectionNext.offsetTop + sectionNext.offsetHeight) {
+            if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight >= posFloor ) {
+              // console.log(sectionCurrent)
+              // console.log(sectionNext)
+              console.log(sectionCurrent.id) 
+              this.menuActive = sectionCurrent.id
+            } else {
+              this.menuActive = sectionNext.id
+              console.log(sectionNext.id)
+            }
+          }
+
+
+          // //console.log(this.store.menu)
+          // console.log(el.offsetTop + el.offsetHeight + " - " + posFloor)
+          // if (posFloor <= el.offsetTop + el.offsetHeight ) {
+          //   console.log('continuar')
+          // } else {
+          //   console.log('mudar')
+          // }
+          // //console.log(el.id)
+        });
+
+        //console.log(menu[0].id)
+
+//         menu.forEach((el, i) => {
+//           if (document.getElementById(el.id)) {
+//             let sectionCurrent = document.getElementById(el.id).offsetTop + document.getElementById(el.id).offsetHeight
+//             let sectionPrevious = document.getElementById(el.id).offsetTop + document.getElementById(el.id).offsetHeight
+//             
+//             // if (posFloor <= sectionBotton && posFloor + sectionBotton >= posFloor + sectionBotton && document.getElementById(el.id).id === menu[i].id) {
+//             //   console.log('mudar para: ' + document.getElementById(el.id).id)
+//             //   
+//             // }
+// 
+//             console.log('posFloor: ' + posFloor)
+//             console.log('sectionBotton: ' + sectionBotton)
+//             console.log('posFloor + sectionBotton: ' + (posFloor + sectionBotton))
+//           }
+//         })
+
+        
       }
-    }
+    },
   }
 </script>
 
