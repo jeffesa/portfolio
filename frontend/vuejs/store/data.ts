@@ -403,10 +403,16 @@ const portfolio: any = {
   ]
 }
 
-portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { cards: any[] } }; pt: { projects: { cards: any[] }; experiences: { cards: any[] } } }) => {
+portfolio.language.map((lg: { en: {
+  sections: any;
+  menu: { id: any; name: any; }[]; projects: { cards: any[] }; experiences: { cards: any[] } 
+}; pt: {
+  menu: { id: any; name: any; }[];
+  sections: any; projects: { cards: any[] }; experiences: { cards: any[] } 
+} }) => {
   let menu: { id: any; name: any; }[] = []
 
-  lg.en.sections.map(cd => {
+  lg.en.sections.map((cd: { id: string; cards: any[]; title: any; }) => {
     if (cd.id !== 'contact') {
       cd.cards.map(cl => {
         cl.colors.information = cl.colors.title
@@ -433,9 +439,9 @@ portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { c
 
   menu = []
 
-  lg.pt.sections.map(cd => {
+  lg.pt.sections.map((cd: { id: string; cards: { colors: { information: any; title: any; }; }[]; title: any; }) => {
     if (cd.id !== 'contact') {
-      cd.cards.map(cl => {
+      cd.cards.map((cl: { colors: { information: any; title: any; }; }) => {
         cl.colors.information = cl.colors.title
         return cl
       })
