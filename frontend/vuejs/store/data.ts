@@ -455,7 +455,7 @@ portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { c
     }
     return cd
   })
-  console.log()
+
   lg.pt.menu = menu.splice(0, lg.pt.sections.length)
 
   return lg
