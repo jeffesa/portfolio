@@ -46,6 +46,9 @@
           v-html="card.information"
           :style="{color: card.colors.information}"
         />
+        <div class="cards__item__detach flex">
+          <img :src="card.image" class="cards__item__image hidden relative z-10 h-full" />
+        </div>
       </li>
     </ul>
   </div>
@@ -93,7 +96,9 @@
 
 <style lang="scss" scoped>
 .cards {
-  $modal_decrease_size: 300px;
+  $card_decrease_size: 200px;
+  $card_margin: 20px;
+  $card_width: 960px;
 
   @screen md {
     &:hover {
@@ -117,11 +122,19 @@
             &::before {
               content: "";
               position: absolute;
-              width: calc(100vw + $modal_decrease_size);
-              height: calc(100vw + $modal_decrease_size);
+              width: calc(100vw + $card_width);
+              height: calc(100vw + $card_width);
               background: rgba(#fff, .4);
-              top: - $modal_decrease_size;
-              left: - $modal_decrease_size;
+              top: - $card_decrease_size;
+              left: calc((-100vw + $card_width)/2);
+
+              @screen md {
+                left: calc((-100vw + $card_width - 200px)/2)
+              }
+
+              @screen lg {
+                left: calc((-100vw + $card_width)/2)
+              }
             }
 
             &::after {
@@ -162,13 +175,33 @@
       }
 
       &.cards__item--active {      
+        position: fixed !important;
         z-index: 10;  
         box-shadow: none !important;
         transform: scale(1) !important;
         transition: none !important;
-        cursor: auto !important;
-
+        max-width: $card_width;
+        @apply cursor-auto #{!important};
+        @apply mb-0 #{!important};
         @apply mt-0 #{!important};
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        @screen md {
+          width: $card_width - 200px;
+          height: calc(100% - $card_decrease_size - 100px);
+          left: calc((100% - ($card_width - 200px))/2);
+          top: $card_decrease_size/2 + 100px/2;
+        }
+
+        @screen lg {
+          width: $card_width;
+          height: calc(100% - $card_decrease_size);
+          left: calc((100% - $card_width)/2);
+          top: $card_decrease_size/2;
+        }
 
         .cards__item__close {
           position: absolute;
@@ -191,17 +224,18 @@
           }
         }
 
-        position: fixed !important;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
+        .cards__item__detach {
+          //height: calc(100% - $card_decrease_size + 2.5rem + $card_margin/2);
+          height: auto;
+          margin-top: $card_margin;
 
-        @screen md {
-          width: calc(100% - $modal_decrease_size);
-          height: calc(100% - $modal_decrease_size);
-          left: $modal_decrease_size/2;
-          top: $modal_decrease_size/2;
+          @screen md {
+            height: calc(100% - 151px);
+          }
+
+          .cards__item__image {
+            @apply block #{!important};
+          }
         }
       }
     
