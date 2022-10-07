@@ -1,6 +1,6 @@
 <template>
   <div class="icon flex flex-row-reverse items-center">
-    <span class="icon__text text-sm font-medium" :style="{color: color}">
+    <span class="icon__text text-sm font-normal" :style="{color: color}">
       <slot />
     </span>
     <vue-js-icon 

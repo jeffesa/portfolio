@@ -1,6 +1,6 @@
 <template>
-  <div class="portfolio relative grid grid-cols-1 md:grid-cols-2 p-6 md:p-20 h-full">
-    <div class="portfolio__language absolute flex pr-6 md:pr-20  text-xs font-normal z-10">
+  <div class="portfolio relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
+    <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
         class="pr-2"
         :class="language === 'pt' ? 'portfolio__language--active' : ''"
@@ -16,8 +16,8 @@
       </span>
     </div>
     <div class="portfolio__information flex flex-col justify-start relative">
-      <div class="relative md:fixed">
-        <div>
+      <div class="relative lg:fixed">
+        <div class="pt-5 lg:pt-0">
           <h1 
             class="portfolio__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
             v-text="store.title"
@@ -49,7 +49,7 @@
       >
         <div>
           <h2 
-            :class="`portfolio__${section.id}__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block md:hidden`"
+            :class="`portfolio__${section.id}__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block lg:hidden`"
             v-text="section.title"
           />
           <Cards 
@@ -125,10 +125,20 @@ export default {
   $width_portfolio: 408px; 
 
   .portfolio__language {
-    top: 30px;
-    right: 0;
+    top: 24px;
+    right: 24px;
     color: #878788;
     cursor: pointer;
+
+    @screen lg {
+      top: 22px;
+      right: 40px;
+    }
+
+    @screen xl {
+      top: 30px;
+      right: 80px;
+    }
 
     .portfolio__language--active {
       color: #fff;
@@ -137,12 +147,16 @@ export default {
   }
 
   .portfolio__information {
-    max-width: $width_portfolio;
+    max-width: 100%;
+
+    @screen lg {
+      max-width: $width_portfolio;
+    }
 
     .portfolio__title {
       font-size: 34px;
 
-      @screen md {
+      @screen lg {
         font-size: 44px;
       }
     }
@@ -152,9 +166,13 @@ export default {
     }
 
     .portfolio__description {
-      max-width: $width_portfolio;
+      max-width: 100%;
       color: #878788;
       line-height: 2;
+
+      @screen lg {
+        max-width: $width_portfolio;
+      }
 
       :deep a {
         color: #fff;

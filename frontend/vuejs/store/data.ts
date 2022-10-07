@@ -236,6 +236,7 @@ const portfolio: any = {
                 subtitle: 'Novos ares',
                 description: 'Desde 2007 trabalhei focado no backend, mas com frequencia eu tinha demandas no frontend, tanto em soluções que envolviam terminais POS, quando em blogs, sites, landing pages, etc. A partir de 2019, comecei a me dedicar na programação voltada no frontend. Desde então trabalhei em projetos para grandes empresas tais como, Cielo, CVC, Submarino, Netflix, Citroën',
                 information: 'Since 2019',
+                image: './projects/single-landing-page-react-native.png',
                 link: '',
                 colors: {
                   title: '#42b883'
@@ -454,7 +455,7 @@ portfolio.language.map((lg: { en: { projects: { cards: any[] }; experiences: { c
     }
     return cd
   })
-
+  console.log()
   lg.pt.menu = menu.splice(0, lg.pt.sections.length)
 
   return lg

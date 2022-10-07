@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="menu mt-16 hidden md:block" 
+    class="menu mt-16 hidden lg:block" 
     v-if="menu"
   >
     <nav>

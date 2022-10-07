@@ -1,5 +1,5 @@
 <template>
-  <div class="profile grid pt-8 md:pt-32" v-if="profile">
+  <div class="profile grid pt-8 lg:pt-32" v-if="profile">
     <img alt="" 
       :src="profile.image"
       class="profile__photo" />
