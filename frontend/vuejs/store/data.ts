@@ -197,6 +197,9 @@ const portfolio: any = {
           {
             id: 'contact',
             title: 'Contact',
+            location: 'São Paulo, Brazil',
+            phone: '+55 11 98546-8926',
+            email: 'jeffesa@gmail.com'
           },
         ],
       },
@@ -396,6 +399,9 @@ const portfolio: any = {
           {
             id: 'contact',
             title: 'Contact',
+            location: 'São Paulo, Brazil',
+            phone: '+55 11 98546-8926',
+            email: 'jeffesa@gmail.com'
           },
         ],
       },

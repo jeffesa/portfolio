@@ -58,6 +58,32 @@
           />
         </div>
       </section>
+      <section 
+        v-else
+        class="portfolio__contact text-xs pt-8 md:pt-20"
+        :id="section.id"
+      >
+        <span 
+          class="portfolio__contact__title block text-white uppercase pb-1 lg:pb-5"
+          v-text="section.title"
+          v-if="section.title"
+        />
+        <span 
+          class="portfolio__contact__email block text-white"
+          v-text="section.email"
+          v-if="section.email"
+        />
+        <span 
+          class="portfolio__contact__phone block text-white pt-1 lg:pt-2"
+          v-text="section.phone"
+          v-if="section.phone"
+        />
+        <span 
+          class="portfolio__contact__location block pt-1 lg:pt-2" 
+          v-text="section.location" 
+          v-if="section.location"
+        />
+      </section>
     </div>
   </div>
 </template>
@@ -242,6 +268,48 @@ export default {
           @apply leading-6;
         }
       }
+    }
+  }
+
+  .portfolio__contact {
+    .portfolio__contact__title {
+      @apply text-xs;
+      @apply font-semibold;
+      @apply leading-6;
+      letter-spacing: 3px;
+
+      @screen lg {
+        @apply text-lg;
+      }
+    }
+
+    .portfolio__contact__email {
+      color: #fff;
+      @apply text-sm;
+      @apply font-semibold;
+      @apply leading-6;
+
+      @screen lg {
+        @apply text-base;
+      }
+    }
+
+    .portfolio__contact__phone {
+      color: #fff;
+      @apply text-xs;
+      @apply font-semibold;
+      @apply leading-4;
+
+      @screen lg {
+        @apply text-sm;
+      }
+    }
+
+    .portfolio__contact__location {
+      color: #878788;
+      @apply text-xs;
+      @apply font-semibold;
+      @apply leading-4;
     }
   }
 }
