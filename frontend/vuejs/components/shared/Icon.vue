@@ -1,59 +1,59 @@
 <template>
-  <div class="icon flex flex-row-reverse items-center">
-    <span class="icon__text text-sm font-normal" :style="{color: color}">
+  <div class="icons flex flex-row-reverse items-center">
+    <span class="icons__text text-sm font-normal" :style="{color: color}">
       <slot />
     </span>
     <vue-js-icon 
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'vue'"
     />
     <php-icon 
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'php'"
     />
     <react-icon 
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'reactjs'"
     />
     <sass-icon
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'sass'"
     />
     <type-script-icon
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'typescript'"
     />
     <svelte-icon
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'svelte'"
     />
     <word-press-icon
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'wordpress'"
     />
     <git-hub-icon
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'github'"
     />
     <linked-in-icon
       size="2x" 
-      class="icon__language mr-2"
+      class="icons__language mr-2"
       :style="{fill: color}"
       v-if="icon === 'linkedin'"
     />
@@ -90,7 +90,7 @@
 
 <style lang="scss" scoped>
   .icon {
-    .icon__language {
+    .icons__language {
       fill: #fff;
     }
   }

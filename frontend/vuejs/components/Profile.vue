@@ -56,6 +56,7 @@
       
       .profile__networks__icon {
         @apply mr-0;
+        font-size: 8px;
 
         :deep {
           .icon__language {

@@ -27,7 +27,7 @@
             v-text="store.subtitle"
           />
           <div 
-            class="portfolio__description text-sm mt-8"
+            class="portfolio__description mt-8"
             v-html="store.description"
           />
           <Menu 
@@ -68,7 +68,7 @@
           v-text="section.title"
           v-if="section.title"
         />
-        <span 
+        <!-- <span 
           class="portfolio__contact__email block text-white"
           v-text="section.email"
           v-if="section.email"
@@ -82,7 +82,18 @@
           class="portfolio__contact__location block pt-1 lg:pt-2" 
           v-text="section.location" 
           v-if="section.location"
-        />
+        /> -->
+        <b-field label="Name">
+            <b-input v-model="name"></b-input>
+        </b-field>
+        <b-field label="Email">
+            <b-input v-model="email"></b-input>
+        </b-field>
+        <b-field label="Message"
+            :label-position="labelPosition">
+            <b-input maxlength="200" type="textarea"></b-input>
+        </b-field>
+        <b-button type="is-primary">Enviar</b-button>
       </section>
     </div>
   </div>
@@ -94,7 +105,9 @@ export default {
       return {
         store: this.$store.state.data.portfolio.language[0].en as Object,
         language: 'en' as string,
-        menuActive: '' as string
+        menuActive: '' as string,
+        name: null,
+        email: null,
       }
     },
 
@@ -194,7 +207,10 @@ export default {
     .portfolio__description {
       max-width: 100%;
       color: #878788;
-      line-height: 2;
+      //line-height: 2px;
+      
+      @apply text-sm;
+      @apply leading-6;
 
       @screen lg {
         max-width: $width_portfolio;
