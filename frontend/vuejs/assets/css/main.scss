@@ -10,3 +10,10 @@ body, html {
 #__layout {
   height: 100%;
 }
+
+@screen lg {
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

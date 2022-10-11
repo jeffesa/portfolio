@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
+  <div class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
     <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
         class="pr-2"
