@@ -193,14 +193,14 @@
           width: $card_width - 200px;
           height: calc(100% - $card_decrease_size - 100px);
           left: calc((100% - ($card_width - 200px))/2);
-          top: $card_decrease_size/2 + 100px/2;
+          top: calc($card_decrease_size/2) + calc(100px/2);
         }
 
         @screen lg {
           width: $card_width;
           height: calc(100% - $card_decrease_size);
           left: calc((100% - $card_width)/2);
-          top: $card_decrease_size/2;
+          top: calc($card_decrease_size/2);
         }
 
         .cards__item__close {
@@ -243,7 +243,7 @@
         font-size: 10px;
         letter-spacing: 3px;
 
-        :deep .icon__text {
+        :deep(.icon__text) {
           letter-spacing: 3px;
           @apply text-xs;
           @apply font-bold #{!important};

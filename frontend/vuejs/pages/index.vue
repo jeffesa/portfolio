@@ -108,6 +108,7 @@ export default {
         menuActive: '' as string,
         name: null,
         email: null,
+        labelPosition: null
       }
     },
 
@@ -138,22 +139,25 @@ export default {
       },
 
       scrollHandler(): any {
-        let sections = [...document.getElementsByTagName('section')];
-        let divPortfolio = document.querySelector('.portfolio')
-        let posFloor = window.pageYOffset + divPortfolio.offsetHeight
-        let menu = this.store.menu
+        let sections = [...document.getElementsByTagName('section')]
+        let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
+        if (divPortfolio !== null) {
+          let posFloor = window.pageYOffset + divPortfolio.offsetHeight
+          let menu = this.store.menu
 
-        sections.forEach((el, i) => {
-          let sectionCurrent = document.getElementsByTagName('section')[i]
-          let sectionNext = document.getElementsByTagName('section')[i + 1]
-          if (sectionCurrent !== undefined && sectionNext !== undefined) {
-            if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight >= posFloor ) {
-              this.menuActive = sectionCurrent.id
-            } else {
-              this.menuActive = sectionNext.id
+          sections.forEach((el, i) => {
+            let sectionCurrent = document.getElementsByTagName('section')[i] as HTMLElement | null
+            let sectionNext = document.getElementsByTagName('section')[i + 1] as HTMLElement | null
+
+            if (sectionCurrent !== null && sectionNext !== null) {
+              if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight >= posFloor ) {
+                this.menuActive = sectionCurrent.id
+              } else {
+                this.menuActive = sectionNext.id
+              }
             }
-          }
-        });
+          })
+        }
       }
     },
   }
@@ -216,7 +220,7 @@ export default {
         max-width: $width_portfolio;
       }
 
-      :deep a {
+      :deep(a) {
         color: #fff;
         text-decoration-line: underline;
       }
@@ -234,7 +238,7 @@ export default {
       letter-spacing: 3px;
     }
 
-    :deep {
+    :deep() {
       .portfolio__projects__title {
         @apply mt-0;
       }
@@ -288,6 +292,17 @@ export default {
   }
 
   .portfolio__contact {
+    :deep {
+      .label {
+        @apply text-white;
+        @apply text-sm;
+      }
+
+      .button {
+        background: #42b883;
+      }
+    }
+    
     .portfolio__contact__title {
       @apply text-xs;
       @apply font-semibold;

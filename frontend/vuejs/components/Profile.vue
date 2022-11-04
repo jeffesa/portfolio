@@ -58,7 +58,7 @@
         @apply mr-0;
         font-size: 8px;
 
-        :deep {
+        :deep() {
           .icon__language {
             width: 16px;
             height: 16px;
