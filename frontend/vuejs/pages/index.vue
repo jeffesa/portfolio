@@ -117,6 +117,7 @@ export default {
         window.addEventListener('scroll', this.scrollHandler)
       }
     },
+
     destroyed () {
       if(process.browser){
         window.removeEventListener('scroll', this.scrollHandler)
@@ -145,18 +146,24 @@ export default {
           let posFloor = window.pageYOffset + divPortfolio.offsetHeight
           let menu = this.store.menu
 
-          sections.forEach((el, i) => {
-            let sectionCurrent = document.getElementsByTagName('section')[i] as HTMLElement | null
-            let sectionNext = document.getElementsByTagName('section')[i + 1] as HTMLElement | null
 
-            if (sectionCurrent !== null && sectionNext !== null) {
-              if (sectionCurrent.offsetTop + sectionCurrent.offsetHeight >= posFloor ) {
-                this.menuActive = sectionCurrent.id
-              } else {
-                this.menuActive = sectionNext.id
-              }
+          let sectionExperiences = sections[0] as HTMLElement | null
+          let sectionProjects = sections[1] as HTMLElement | null
+          let sectionContact = sections[2] as HTMLElement | null
+
+          if (sectionExperiences !== null && sectionProjects !== null && sectionContact !== null) {
+            if (posFloor <= (sectionExperiences.offsetTop + sectionExperiences.offsetHeight)) {
+              this.menuActive = sectionExperiences.id
+            } 
+
+            if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop) {
+              this.menuActive = sectionProjects.id
             }
-          })
+
+            if (posFloor >= sectionContact.offsetTop && posFloor >= sectionProjects.offsetTop) {
+              this.menuActive = sectionContact.id
+            }
+          }
         }
       }
     },
@@ -299,7 +306,8 @@ export default {
       }
 
       .button {
-        background: #42b883;
+        background: #fff;
+        color: #000;
       }
     }
     
