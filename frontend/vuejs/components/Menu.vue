@@ -90,7 +90,7 @@
           color: #fff;
         }
         .menu__item__line {
-          @apply w-12;
+          @apply w-12 #{!important};
         }
       }
     }

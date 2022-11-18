@@ -42,7 +42,7 @@
       <section 
         v-for="(section, i) in store.sections" 
         :key="i"
-        :class="[`portfolio__${section.id}`, section.id === 'projects' ? 'pt-8 md:pt-10' : '']"
+        :class="[`portfolio__${section.id}`, section.id === 'projects' ? 'mt-8 md:mt-10' : '']"
         v-if="section.id !== 'contact'"
         :id="section.id"
         v-scroll="scrollHandler"
@@ -60,7 +60,7 @@
       </section>
       <section 
         v-else
-        class="portfolio__contact text-xs pt-8 md:pt-20"
+        class="portfolio__contact text-xs mt-8 md:mt-20"
         :id="section.id"
       >
         <span 
