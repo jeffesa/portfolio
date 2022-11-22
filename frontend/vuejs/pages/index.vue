@@ -272,14 +272,14 @@ export default {
         .cards__item:nth-child(2n + 2) {
           //background: blue !important;
           @apply relative;
-          @apply top-0;
+          // @apply top-0;
           @apply mt-0;
           @apply mb-2;
           @apply ml-0;
 
           @screen md {
             @apply ml-1;
-            @apply top-10;
+            // @apply top-10;
           }
         }
 
@@ -308,6 +308,11 @@ export default {
       .button {
         background: #fff;
         color: #000;
+      }
+
+      .input,
+      .textarea {
+        border: 0;
       }
     }
     

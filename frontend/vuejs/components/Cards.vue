@@ -4,9 +4,9 @@
     :class="modalActive !== null  ? 'cards__has-modal' : ''"
     v-if="cards"
   >
-    <ul class="cards__list">
+    <ul class="cards__list pt-2">
       <li 
-        class="cards__item p-6 md:p-10 my-2"
+        class="cards__item p-6 md:p-10 mb-2"
         :class="i === modalActive && (card.link === '' || card.link === null) ? 'cards__item--active' : ''"
         v-for="(card, i) in cards"
         :key="i"
