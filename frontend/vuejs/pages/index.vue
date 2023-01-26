@@ -41,44 +41,6 @@
       <Projects :projects="projects" />
 
       <Contact :contact="contact[0]" />
-
-      <!-- <section 
-        v-else
-        class="portfolio__contact text-xs mt-8 md:mt-20"
-        :id="section.id"
-      >
-        <span 
-          class="portfolio__contact__title block text-white uppercase pb-1 lg:pb-5"
-          v-text="section.title"
-          v-if="section.title"
-        /> -->
-        <!-- <span 
-          class="portfolio__contact__email block text-white"
-          v-text="section.email"
-          v-if="section.email"
-        />
-        <span 
-          class="portfolio__contact__phone block text-white pt-1 lg:pt-2"
-          v-text="section.phone"
-          v-if="section.phone"
-        />
-        <span 
-          class="portfolio__contact__location block pt-1 lg:pt-2" 
-          v-text="section.location" 
-          v-if="section.location"
-        /> -->
-        <!-- <b-field label="Name">
-            <b-input v-model="name"></b-input>
-        </b-field>
-        <b-field label="Email">
-            <b-input v-model="email"></b-input>
-        </b-field>
-        <b-field label="Message"
-            :label-position="labelPosition">
-            <b-input maxlength="200" type="textarea"></b-input>
-        </b-field>
-        <b-button type="is-primary">Enviar</b-button>
-      </section> -->
     </div>
   </div>
 </template>
@@ -336,10 +298,12 @@ export default {
 .portfolio {
 
   .portfolio__lazytransition {
-    transition: filter 0.5s,
+    transition: filter 0.5s;
+    opacity: 1;
   }
   .portfolio__lazyload {
     filter: blur(40px);
+    opacity: 0;
   }
 
   .portfolio__language {

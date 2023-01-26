@@ -1,5 +1,5 @@
 <template>
-  <div class="profile grid pt-8 lg:pt-32" v-if="profile">
+  <div class="profile flex justify-center lg:justify-start pt-8 lg:pt-32 pb-8 lg:pb-0" v-if="profile">
     <img alt="" 
       :src="profile.image"
       class="profile__photo" 
@@ -49,6 +49,8 @@
 
   .profile__photo {
     border-radius: 50%;
+    width: 50px;
+    height: 50px;
   }
 
   .profile__networks {
