@@ -1,5 +1,10 @@
 <template>
   <div class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
+    <!-- {{ projects }}
+    <br>
+    <br>
+    <br> -->
+    <!-- {{ store.sections }} -->
     <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
         class="pr-2"
@@ -38,26 +43,8 @@
     </Professional>
 
     <div class="pb-6 md:pb-20">
-      <section 
-        v-for="(section, i) in store.sections" 
-        :key="i"
-        :class="[`portfolio__${section.id}`, section.id === 'projects' ? 'mt-8 md:mt-10' : '']"
-        v-if="section.id !== 'contact'"
-        :id="section.id"
-        v-scroll="scrollHandler"
-      >
-        <div>
-          <h2 
-            :class="`portfolio__${section.id}__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block lg:hidden`"
-            v-text="section.title"
-          />
-          <Cards 
-            :cards="section.cards"
-            @overflow="overflowHidden" 
-          />
-        </div>
-      </section>
-      <section 
+      <Projects :projects="projects" />
+      <!-- <section 
         v-else
         class="portfolio__contact text-xs mt-8 md:mt-20"
         :id="section.id"
@@ -66,7 +53,7 @@
           class="portfolio__contact__title block text-white uppercase pb-1 lg:pb-5"
           v-text="section.title"
           v-if="section.title"
-        />
+        /> -->
         <!-- <span 
           class="portfolio__contact__email block text-white"
           v-text="section.email"
@@ -82,7 +69,7 @@
           v-text="section.location" 
           v-if="section.location"
         /> -->
-        <b-field label="Name">
+        <!-- <b-field label="Name">
             <b-input v-model="name"></b-input>
         </b-field>
         <b-field label="Email">
@@ -93,7 +80,7 @@
             <b-input maxlength="200" type="textarea"></b-input>
         </b-field>
         <b-button type="is-primary">Enviar</b-button>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
@@ -113,6 +100,7 @@ export default {
       menu: null,
       professional: Object,
       profile: Object,
+      projects: Object,
     }
   },
 
@@ -121,6 +109,7 @@ export default {
       this.menu = await this.getMenus()
       this.professional = await this.getProfessional()
       this.profile = await this.getProfile()
+      this.projects = await this.getProjects()
     })()
   },
 
@@ -269,6 +258,41 @@ export default {
       })
 
       return profile.data.profile[0]
+    },
+
+    async getProjects() {
+      let projects: any
+
+      const getProjects = gql`
+        query {
+            projects: projects {
+              title
+              id
+              cards: cards_projects_1 {
+                color
+                description
+                icon
+                id
+                image
+                information
+                link
+                project_id
+                subtitle
+                title
+              }
+            }
+          }
+      `
+
+      projects = await this.$apollo.query({
+        fetchPolicy: "no-cache",
+        query: getProjects,
+        variables: {
+          type: String
+        }
+      })
+
+      return projects.data.projects
     }
   },
 }
@@ -303,70 +327,6 @@ export default {
     .portfolio__language--active {
       color: #fff;
       text-decoration-line: underline;
-    }
-  }
-
-  .portfolio__experiences {
-    .portfolio__experiences__title {
-      letter-spacing: 3px;
-    }
-  }
-
-  .portfolio__projects {
-    .portfolio__projects__title {
-      letter-spacing: 3px;
-    }
-
-    :deep() {
-      .portfolio__projects__title {
-        @apply mt-0;
-      }
-
-      .cards__list {
-        display: grid;
-        grid-template-columns: 100%;
-
-        @screen md {
-          grid-template-columns: 50% 50%;
-        }
-
-        .cards__item:nth-child(2n + 1) {
-          //background: red !important;
-          @apply mt-0;
-          @apply mb-2;
-          @apply mr-0;
-
-          @screen md {
-            @apply mr-1 #{!important};
-          }
-        }
-
-        .cards__item:nth-child(2n + 2) {
-          //background: blue !important;
-          @apply relative;
-          // @apply top-0;
-          @apply mt-0;
-          @apply mb-2;
-          @apply ml-0;
-
-          @screen md {
-            @apply ml-1;
-            // @apply top-10;
-          }
-        }
-
-        .cards__item__subtitle {
-          color: #949495;
-          @apply text-base;
-        }
-
-        .cards__item__description {
-          color: #fff;
-          @apply text-lg;
-          @apply font-semibold;
-          @apply leading-6;
-        }
-      }
     }
   }
 

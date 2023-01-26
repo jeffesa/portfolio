@@ -20,7 +20,7 @@
             <Icon 
               class="mr-2"
               :icon="card.icon" v-if="card.icon"
-              :color="card.colors.title"
+              :color="card.color"
             >
               {{card.title}}
             </Icon>
@@ -34,17 +34,17 @@
         <p 
           class="cards__item__subtitle text-2xl font-semibold mt-2 relative z-10"
           v-html="card.subtitle"
-          :style="{color: card.colors.subtitle}"
+          :style="{color: card.color.subtitle}"
         />
         <p 
           class="cards__item__description text-sm mt-2 relative z-10"
           v-html="card.description"
-          :style="{color: card.colors.description}"
+          :style="{color: card.color.description}"
         />
         <p 
           class="cards__item__information font-bold mt-2 relative z-10"
           v-html="card.information"
-          :style="{color: card.colors.information}"
+          :style="{color: card.color.information}"
         />
         <div class="cards__item__detach flex">
           <img :src="card.image" class="cards__item__image hidden relative z-10 h-full" />
