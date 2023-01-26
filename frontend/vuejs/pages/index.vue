@@ -15,7 +15,15 @@
         EN
       </span>
     </div>
-    <div class="portfolio__information flex flex-col justify-start relative">
+
+    <Professional 
+      :professional="professional" 
+      :profile="store.profile"
+      :menu="menu" 
+      :menuActive="menuActive"
+    />
+
+    <!-- <div class="portfolio__information flex flex-col justify-start relative">
       <div class="relative lg:fixed">
         <div class="pt-5 lg:pt-0">
           <h1 
@@ -37,7 +45,8 @@
         </div>
         <Profile :profile="store.profile" />
       </div>
-    </div>
+    </div> -->
+
     <div class="pb-6 md:pb-20">
       <section 
         v-for="(section, i) in store.sections" 
@@ -276,8 +285,6 @@ export default {
 
 <style lang="scss" scoped>
 .portfolio {
-  $width_portfolio: 408px; 
-
   .portfolio__language {
     top: 24px;
     right: 24px;
@@ -297,44 +304,6 @@ export default {
     .portfolio__language--active {
       color: #fff;
       text-decoration-line: underline;
-    }
-  }
-
-  .portfolio__information {
-    max-width: 100%;
-
-    @screen lg {
-      max-width: $width_portfolio;
-    }
-
-    .portfolio__title {
-      font-size: 34px;
-
-      @screen lg {
-        font-size: 44px;
-      }
-    }
-
-    .portfolio__subtitle {
-      font-size: 22px;
-    }
-
-    .portfolio__description {
-      max-width: 100%;
-      color: #878788;
-      //line-height: 2px;
-      
-      @apply text-sm;
-      @apply leading-6;
-
-      @screen lg {
-        max-width: $width_portfolio;
-      }
-
-      :deep(a) {
-        color: #fff;
-        text-decoration-line: underline;
-      }
     }
   }
 
