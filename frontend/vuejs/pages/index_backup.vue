@@ -1,5 +1,7 @@
 <template>
   <div class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
+    {{language}}
+    {{ menu }}
     <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
         class="pr-2"
@@ -20,18 +22,21 @@
         <div class="pt-5 lg:pt-0">
           <h1 
             class="portfolio__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
-            v-text="store.title"
+            v-text="professional[0].name"
+            v-if="professional[0].name"
           />
           <h2 
             class="portfolio__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
-            v-text="store.subtitle"
+            v-text="professional[0].career"
+            v-if="professional[0].career"
           />
           <div 
             class="portfolio__description mt-8"
-            v-html="store.description"
+            v-html="professional[0].description"
+            v-if="professional[0].description"
           />
           <Menu 
-            :menu="menu" 
+            :menu="reorderMenu" 
             :menuActive="menuActive"
           />
         </div>
@@ -45,8 +50,8 @@
         :class="[`portfolio__${section.id}`, section.id === 'projects' ? 'mt-8 md:mt-10' : '']"
         v-if="section.id !== 'contact'"
         :id="section.id"
-        v-scroll="scrollHandler"
       >
+      <!-- v-scroll="scrollHandler" -->
         <div>
           <h2 
             :class="`portfolio__${section.id}__title text-xs font-semibold mt-2 uppercase mt-20 mb-8 block lg:hidden`"
@@ -101,6 +106,7 @@
 
 <script lang="ts">
 import gql from 'graphql-tag'
+let texx = 'en'
 
 export default {
   apollo: {
@@ -132,7 +138,7 @@ export default {
     //   },
     // },
   },
-
+  
   data(): any {
     return {
       store: this.$store.state.data.portfolio.language[0].en as Object,
@@ -146,14 +152,62 @@ export default {
   },
 
   created () {
-    (async () => {
-      this.menu = await this.getMenus()
-    })()
+    this.getMenus()
   },
 
   mounted () {
     if(process.browser){
       window.addEventListener('scroll', this.scrollHandler)
+    }
+  },
+
+  computed: {
+    reorderMenu(): any {
+      // console.log(this.language)
+      console.log(this.menu)
+
+      let employees = [
+    {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 27,
+        joinedDate: 'December 15, 2017'
+    },
+
+    {
+        firstName: 'Ana',
+        lastName: 'Rosy',
+        age: 25,
+        joinedDate: 'January 15, 2019'
+    },
+
+    {
+        firstName: 'Zion',
+        lastName: 'Albert',
+        age: 30,
+        joinedDate: 'February 15, 2011'
+    }
+];
+
+console.log(employees)
+
+
+      employees.forEach((e) => {
+          console.log(`xxxx`);
+      });
+
+
+//       this.menu = this.menu.map((item, index) => ({
+//         id: index === 0 ? this.menu[1].id :
+//             index === 1 ? this.menu[2].id :
+//             index === 2 ? this.menu[0].id : '',
+// 
+//         name: index === 0 ? this.menu[1].name :
+//               index === 1 ? this.menu[2].name :
+//               index === 2 ? this.menu[0].name : ''
+//       }))
+
+      return this.menu
     }
   },
 
@@ -176,6 +230,8 @@ export default {
     setLanguage(lang: string): any {
       this.language = lang
       this.store = lang === 'pt' ? this.$store.state.data.portfolio.language[0].pt : this.$store.state.data.portfolio.language[0].en
+
+      this.getMenus('pt')
     },
 
     scrollHandler(): any {
@@ -183,7 +239,7 @@ export default {
       let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
       if (divPortfolio !== null) {
         let posFloor = window.pageYOffset + divPortfolio.offsetHeight
-        let menu = this.store.menu
+        //let menu = this.reorderMenu
 
 
         let sectionExperiences = sections[0] as HTMLElement | null
@@ -207,6 +263,7 @@ export default {
     },
 
     async getMenus() {
+      //console.log('blabla')
       let menu: any
 
       const getMenus = gql`
@@ -217,7 +274,6 @@ export default {
             }
           }
       `;
-
       menu = await this.$apollo.query({
         fetchPolicy: "no-cache",
         query: getMenus,
@@ -226,18 +282,7 @@ export default {
         }
       });
 
-      let newMenu = JSON.parse(JSON.stringify(menu.data.menu))
-      let sortMenu: any = []
-
-      newMenu = newMenu.map((m) => {
-        if (m.id === 'experiences') sortMenu[0] = { id: m.id, name: m.name}
-        if (m.id === 'projects') sortMenu[1] = { id: m.id, name: m.name}
-        if (m.id === 'contact') sortMenu[2] = { id: m.id, name: m.name}
-      })
-
-      sortMenu = Object.assign({}, sortMenu)
-
-      return sortMenu
+      this.menu = menu.data.menu
     }
   },
 }

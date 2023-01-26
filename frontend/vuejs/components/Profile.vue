@@ -26,6 +26,7 @@
 <script lang="ts">
   //@ts-ignore
   import Icon from './shared/Icon'
+  //const Icon = () => import('./shared/Icon');
 
   export default {
     components: { 

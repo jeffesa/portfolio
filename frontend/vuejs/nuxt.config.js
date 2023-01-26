@@ -47,7 +47,23 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     ['nuxt-buefy', { css: true, materialDesignIcons: false }],
+    '@nuxtjs/apollo',
   ],
+
+  // Apollo configuration
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://wired-grizzly-44.hasura.app/v1/graphql',
+        httpLinkOptions: {
+          headers:{
+              'content-type': 'application/json',
+              'x-hasura-admin-secret': 'eMA5yTtbLO1pw99ppTUvJOpmNCouRexkYsFCOEh0yPr0rHSAyncxBWO1hpSvUUVe'
+          }
+        }
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -18,7 +18,7 @@
           >
             <span 
               class="text-xs"
-              v-text="`0${i+1}`"
+              v-text="`0${parseInt(i) + parseInt(1)}`"
             />
             <span class="menu__item__line inline-block w-6 mx-4"></span>
             <span 
