@@ -1,10 +1,5 @@
 <template>
   <div class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
-    <!-- {{ projects }}
-    <br>
-    <br>
-    <br> -->
-    <!-- {{ store.sections }} -->
     <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
         class="pr-2"
@@ -44,6 +39,9 @@
 
     <div class="pb-6 md:pb-20">
       <Projects :projects="projects" />
+
+      <Contact :contact="contact[0]" />
+
       <!-- <section 
         v-else
         class="portfolio__contact text-xs mt-8 md:mt-20"
@@ -101,22 +99,32 @@ export default {
       professional: Object,
       profile: Object,
       projects: Object,
+      contact: Object
     }
   },
 
-  created () {
-    (async () => {
-      this.menu = await this.getMenus()
-      this.professional = await this.getProfessional()
-      this.profile = await this.getProfile()
-      this.projects = await this.getProjects()
-    })()
-  },
+  // created () {
+  //   (async () => {
+  //     this.menu = await this.getMenus()
+  //     this.professional = await this.getProfessional()
+  //     this.profile = await this.getProfile()
+  //     this.projects = await this.getProjects()
+  //     this.contact = await this.getContact()
+  //   })()
+  // },
 
   mounted () {
     if(process.browser){
       window.addEventListener('scroll', this.scrollHandler)
     }
+
+    (async () => {
+      this.menu = await this.getMenus()
+      this.professional = await this.getProfessional()
+      this.profile = await this.getProfile()
+      this.projects = await this.getProjects()
+      this.contact = await this.getContact()
+    })()
   },
 
   destroyed () {
@@ -293,6 +301,32 @@ export default {
       })
 
       return projects.data.projects
+    },
+
+    async getContact() {
+      let contact: any
+
+      const getContact = gql`
+        query {
+            contact: contact {
+              email
+              id
+              location
+              phone
+              title
+            }
+          }
+      `
+
+      contact = await this.$apollo.query({
+        fetchPolicy: "no-cache",
+        query: getContact,
+        variables: {
+          type: String
+        }
+      })
+
+      return contact.data.contact
     }
   },
 }
@@ -327,65 +361,6 @@ export default {
     .portfolio__language--active {
       color: #fff;
       text-decoration-line: underline;
-    }
-  }
-
-  .portfolio__contact {
-    :deep {
-      .label {
-        @apply text-white;
-        @apply text-sm;
-      }
-
-      .button {
-        background: #fff;
-        color: #000;
-      }
-
-      .input,
-      .textarea {
-        border: 0;
-      }
-    }
-    
-    .portfolio__contact__title {
-      @apply text-xs;
-      @apply font-semibold;
-      @apply leading-6;
-      letter-spacing: 3px;
-
-      @screen lg {
-        @apply text-lg;
-      }
-    }
-
-    .portfolio__contact__email {
-      color: #fff;
-      @apply text-sm;
-      @apply font-semibold;
-      @apply leading-6;
-
-      @screen lg {
-        @apply text-base;
-      }
-    }
-
-    .portfolio__contact__phone {
-      color: #fff;
-      @apply text-xs;
-      @apply font-semibold;
-      @apply leading-4;
-
-      @screen lg {
-        @apply text-sm;
-      }
-    }
-
-    .portfolio__contact__location {
-      color: #878788;
-      @apply text-xs;
-      @apply font-semibold;
-      @apply leading-4;
     }
   }
 }
