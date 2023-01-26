@@ -21,31 +21,8 @@
       :profile="store.profile"
       :menu="menu" 
       :menuActive="menuActive"
+      v-if="Object.keys(professional).length > 0 && Object.keys(menu).length > 0"
     />
-
-    <!-- <div class="portfolio__information flex flex-col justify-start relative">
-      <div class="relative lg:fixed">
-        <div class="pt-5 lg:pt-0">
-          <h1 
-            class="portfolio__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
-            v-text="professional.name"
-          />
-          <h2 
-            class="portfolio__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
-            v-text="professional.career"
-          />
-          <div 
-            class="portfolio__description mt-8"
-            v-html="professional.description"
-          />
-          <Menu 
-            :menu="menu" 
-            :menuActive="menuActive"
-          />
-        </div>
-        <Profile :profile="store.profile" />
-      </div>
-    </div> -->
 
     <div class="pb-6 md:pb-20">
       <section 
@@ -112,36 +89,6 @@
 import gql from 'graphql-tag'
 
 export default {
-  apollo: {
-    professional: {
-      query() {
-        return gql`
-          query {
-            professional: professional (where: {language: {_eq: "en"}}) {
-              id,
-              name,
-              career,
-              description,
-              language
-            }
-          }
-        `
-      },
-    },
-    // menu: {
-    //   query() {
-    //     return gql`
-    //       query {
-    //         menu: menu (order_by: {id: asc}, where: {language: {_eq: "${this.language}"}}) {
-    //           id,
-    //           name
-    //         }
-    //       }
-    //     `
-    //   },
-    // },
-  },
-
   data(): any {
     return {
       store: this.$store.state.data.portfolio.language[0].en as Object,
@@ -151,7 +98,7 @@ export default {
       email: null,
       labelPosition: null,
       menu: null,
-      professional: Object
+      professional: Object,
     }
   },
 
@@ -273,9 +220,6 @@ export default {
           type: String
         }
       })
-
-      console.clear()
-      console.log(professional.data.professional)
 
       return professional.data.professional[0]
     }
