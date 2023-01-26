@@ -20,15 +20,15 @@
         <div class="pt-5 lg:pt-0">
           <h1 
             class="portfolio__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
-            v-text="store.title"
+            v-text="professional.name"
           />
           <h2 
             class="portfolio__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
-            v-text="store.subtitle"
+            v-text="professional.career"
           />
           <div 
             class="portfolio__description mt-8"
-            v-html="store.description"
+            v-html="professional.description"
           />
           <Menu 
             :menu="menu" 
@@ -141,13 +141,15 @@ export default {
       name: null,
       email: null,
       labelPosition: null,
-      menu: null
+      menu: null,
+      professional: null
     }
   },
 
   created () {
     (async () => {
       this.menu = await this.getMenus()
+      this.professional = await this.getProfessional()
     })()
   },
 
@@ -216,7 +218,7 @@ export default {
               name
             }
           }
-      `;
+      `
 
       menu = await this.$apollo.query({
         fetchPolicy: "no-cache",
@@ -224,7 +226,7 @@ export default {
         variables: {
           type: String
         }
-      });
+      })
 
       let newMenu = JSON.parse(JSON.stringify(menu.data.menu))
       let sortMenu: any = []
@@ -238,6 +240,35 @@ export default {
       sortMenu = Object.assign({}, sortMenu)
 
       return sortMenu
+    },
+
+    async getProfessional() {
+      let professional: any
+
+      const getProfessional = gql`
+        query {
+            professional: professional (where: {language: {_eq: "${this.language}"}}) {
+              id,
+              name,
+              career,
+              description,
+              language
+            }
+          }
+      `
+
+      professional = await this.$apollo.query({
+        fetchPolicy: "no-cache",
+        query: getProfessional,
+        variables: {
+          type: String
+        }
+      })
+
+      console.clear()
+      console.log(professional.data.professional)
+
+      return professional.data.professional[0]
     }
   },
 }
