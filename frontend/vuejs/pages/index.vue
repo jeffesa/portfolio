@@ -33,7 +33,7 @@
       </template>
 
       <template v-slot:profile>
-        <Profile :profile="store.profile" />
+        <Profile :profile="profile" />
       </template>
     </Professional>
 
@@ -112,6 +112,7 @@ export default {
       labelPosition: null,
       menu: null,
       professional: Object,
+      profile: Object,
     }
   },
 
@@ -119,6 +120,7 @@ export default {
     (async () => {
       this.menu = await this.getMenus()
       this.professional = await this.getProfessional()
+      this.profile = await this.getProfile()
     })()
   },
 
@@ -235,6 +237,38 @@ export default {
       })
 
       return professional.data.professional[0]
+    },
+
+    async getProfile() {
+      let profile: any
+
+      const getProfile = gql`
+        query {
+            profile: profile {
+              id
+              image
+              networks: networks_profile_1 {
+                id
+                name,
+                icon,
+                title,
+                link,
+                color,
+                profile_id
+              }
+            }
+          }
+      `
+
+      profile = await this.$apollo.query({
+        fetchPolicy: "no-cache",
+        query: getProfile,
+        variables: {
+          type: String
+        }
+      })
+
+      return profile.data.profile[0]
     }
   },
 }

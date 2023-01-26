@@ -2,7 +2,8 @@
   <div class="profile grid pt-8 lg:pt-32" v-if="profile">
     <img alt="" 
       :src="profile.image"
-      class="profile__photo" />
+      class="profile__photo" 
+    />
     <div class="flex profile__networks">
       <a 
         class="flex items-center profile__networks__link pl-7" 
@@ -14,7 +15,7 @@
         <Icon 
           class="mr-2 profile__networks__icon"
           :icon="network.icon" v-if="network.icon"
-          :color="network.colors.title"
+          :color="network.color"
         >
           {{network.title}}
         </Icon>
