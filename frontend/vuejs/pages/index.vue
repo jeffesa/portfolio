@@ -21,8 +21,21 @@
       :profile="store.profile"
       :menu="menu" 
       :menuActive="menuActive"
-      v-if="Object.keys(professional).length > 0 && Object.keys(menu).length > 0"
-    />
+      :class="(Object.keys(professional).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
+      class="portfolio__lazytransition"
+    >
+      <template v-slot:menu>
+        <Menu 
+          :menu="menu" 
+          :menuActive="menuActive"
+          v-if="menu" 
+        />
+      </template>
+
+      <template v-slot:profile>
+        <Profile :profile="store.profile" />
+      </template>
+    </Professional>
 
     <div class="pb-6 md:pb-20">
       <section 
@@ -229,6 +242,14 @@ export default {
 
 <style lang="scss" scoped>
 .portfolio {
+
+  .portfolio__lazytransition {
+    transition: filter 0.5s,
+  }
+  .portfolio__lazyload {
+    filter: blur(40px);
+  }
+
   .portfolio__language {
     top: 24px;
     right: 24px;

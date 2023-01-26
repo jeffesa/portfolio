@@ -5,21 +5,22 @@
           <h1 
             class="professional__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
             v-text="professional.name"
+            v-if="Object.keys(professional.name).length === 0 || professional.name !== ''"
           />
           <h2 
             class="professional__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
             v-text="professional.career"
+            v-if="professional.career"
           />
           <div 
             class="professional__description mt-8"
             v-html="professional.description"
+            v-if="professional.description"
           />
-          <Menu 
-            :menu="menu" 
-            :menuActive="menuActive"
-          />
+          <slot />
+          <slot name="menu" />
         </div>
-        <Profile :profile="profile" />
+        <slot name="profile" />
       </div>
     </div>
 </template>
@@ -33,14 +34,6 @@
       },
       profile: {
         type: Object,
-        required: true
-      },
-      menu: {
-        type: null,
-        required: true
-      },
-      menuActive: {
-        type: String,
         required: true
       },
     }
