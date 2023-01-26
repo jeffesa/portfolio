@@ -151,7 +151,7 @@ export default {
       email: null,
       labelPosition: null,
       menu: null,
-      professional: null
+      professional: Object
     }
   },
 

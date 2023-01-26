@@ -28,11 +28,11 @@
   export default {
     props: {
       professional: {
-        type: Array,
+        type: Object,
         required: true
       },
       profile: {
-        type: Array,
+        type: Object,
         required: true
       },
       menu: {
