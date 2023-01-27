@@ -1,9 +1,11 @@
 <template>
   <div class="profile flex justify-center lg:justify-start pt-8 lg:pt-32 pb-8 lg:pb-0" v-if="profile">
-    <img alt="" 
-      :src="profile.image"
-      class="profile__photo" 
-    />
+    <div class="profile__container__photo">
+      <img alt="" 
+        :src="profile.image"
+        class="profile__photo" 
+      />
+    </div>
     <div class="flex profile__networks">
       <a 
         class="flex items-center profile__networks__link pl-7" 
@@ -46,11 +48,34 @@
 <style lang="scss" scoped>
 .profile {
   grid-template-columns: 50px 1fr;
+  .profile__container__photo {
+    position: relative;
 
-  .profile__photo {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    // &::after {
+    //   content: '';
+    //   width: 56px;
+    //   height: 56px;
+    //   border-radius: 50%;
+    //   border: 3px solid #fff;
+    //   position: absolute;
+    //   top: -3px;
+    //   left: -3px;
+    // }
+
+    .profile__photo {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+
+      &::after {
+        content: 'dddd';
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+    }
   }
 
   .profile__networks {

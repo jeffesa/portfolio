@@ -1,5 +1,8 @@
 <template>
-  <div class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full">
+  <div 
+    class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
+    :class="(Object.keys(projects).length > 0 && Object.keys(contact).length > 0) && (Object.keys(professional).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
+  >
     <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
         class="pr-2"
@@ -21,8 +24,6 @@
       :profile="store.profile"
       :menu="menu" 
       :menuActive="menuActive"
-      :class="(Object.keys(professional).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
-      class="portfolio__lazytransition"
     >
       <template v-slot:menu>
         <Menu 
@@ -37,9 +38,8 @@
       </template>
     </Professional>
 
-    <div class="pb-6 md:pb-20">
+    <div class="pb-6 md:pb-20 portfolio__lazytransition">
       <Projects :projects="projects" />
-
       <Contact :contact="contact[0]" />
     </div>
   </div>
@@ -295,16 +295,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.portfolio {
 
-  .portfolio__lazytransition {
-    transition: filter 0.5s;
+.portfolio__lazytransition {
+    transition: filter 0.1s;
     opacity: 1;
   }
   .portfolio__lazyload {
     filter: blur(40px);
     opacity: 0;
   }
+.portfolio {
+
+  
 
   .portfolio__language {
     top: 24px;
