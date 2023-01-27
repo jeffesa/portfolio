@@ -1,21 +1,21 @@
 <template>
-  <div class="professional flex flex-col justify-start relative">
+  <div class="about-me flex flex-col justify-start relative">
       <div class="relative lg:fixed">
         <div class="pt-5 lg:pt-0">
           <h1 
-            class="professional__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
-            v-text="professional.name"
-            v-if="Object.keys(professional.name).length === 0 || professional.name !== ''"
+            class="about-me__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
+            v-text="aboutMe.name"
+            v-if="Object.keys(aboutMe.name).length === 0 || aboutMe.name !== ''"
           />
           <h2 
-            class="professional__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
-            v-text="professional.career"
-            v-if="professional.career"
+            class="about-me__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
+            v-text="aboutMe.career"
+            v-if="aboutMe.career"
           />
           <div 
-            class="professional__description mt-8"
-            v-html="professional.description"
-            v-if="professional.description"
+            class="about-me__description mt-8"
+            v-html="aboutMe.description"
+            v-if="aboutMe.description"
           />
           <slot />
           <slot name="menu" />
@@ -28,7 +28,7 @@
 <script lang="ts">
   export default {
     props: {
-      professional: {
+      aboutMe: {
         type: Object,
         required: true
       },
@@ -41,7 +41,7 @@
 </script>
 
 <style lang="scss" scoped>
-.professional {
+.about-me {
     max-width: 100%;
     $width_portfolio: 408px; 
 
@@ -49,7 +49,7 @@
       max-width: $width_portfolio;
     }
 
-    .professional__title {
+    .about-me__title {
       font-size: 34px;
 
       @screen lg {
@@ -57,11 +57,11 @@
       }
     }
 
-    .professional__subtitle {
+    .about-me__subtitle {
       font-size: 22px;
     }
 
-    .professional__description {
+    .about-me__description {
       max-width: 100%;
       color: #878788;
       //line-height: 2px;

@@ -1,7 +1,7 @@
 <template>
   <div 
     class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
-    :class="(Object.keys(projects).length > 0 && Object.keys(contact).length > 0) && (Object.keys(professional).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
+    :class="(Object.keys(projects).length > 0 && Object.keys(contact).length > 0) && (Object.keys(aboutMe).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
   >
     <div class="portfolio__language absolute flex text-xs font-normal z-10">
       <span 
@@ -19,8 +19,8 @@
       </span>
     </div>
 
-    <Professional 
-      :professional="professional" 
+    <AboutMe 
+      :aboutMe="aboutMe" 
       :profile="store.profile"
       :menu="menu" 
       :menuActive="menuActive"
@@ -36,7 +36,7 @@
       <template v-slot:profile>
         <Profile :profile="profile" />
       </template>
-    </Professional>
+    </AboutMe>
 
     <div class="pb-6 md:pb-20 portfolio__lazytransition">
       <Projects :projects="projects" />
@@ -58,7 +58,7 @@ export default {
       email: null,
       labelPosition: null,
       menu: null,
-      professional: Object,
+      aboutMe: Object,
       profile: Object,
       projects: Object,
       contact: Object
@@ -68,7 +68,7 @@ export default {
   // created () {
   //   (async () => {
   //     this.menu = await this.getMenus()
-  //     this.professional = await this.getProfessional()
+  //     this.aboutMe = await this.getAboutMe()
   //     this.profile = await this.getProfile()
   //     this.projects = await this.getProjects()
   //     this.contact = await this.getContact()
@@ -82,7 +82,7 @@ export default {
 
     (async () => {
       this.menu = await this.getMenus()
-      this.professional = await this.getProfessional()
+      this.aboutMe = await this.getAboutMe()
       this.profile = await this.getProfile()
       this.projects = await this.getProjects()
       this.contact = await this.getContact()
@@ -172,10 +172,10 @@ export default {
       return sortMenu
     },
 
-    async getProfessional() {
-      let professional: any
+    async getAboutMe() {
+      let aboutMe: any
 
-      const getProfessional = gql`
+      const getAboutMe = gql`
         query {
             professional: professional (where: {language: {_eq: "${this.language}"}}) {
               id,
@@ -187,15 +187,15 @@ export default {
           }
       `
 
-      professional = await this.$apollo.query({
+      aboutMe = await this.$apollo.query({
         fetchPolicy: "no-cache",
-        query: getProfessional,
+        query: getAboutMe,
         variables: {
           type: String
         }
       })
 
-      return professional.data.professional[0]
+      return aboutMe.data.professional[0]
     },
 
     async getProfile() {
