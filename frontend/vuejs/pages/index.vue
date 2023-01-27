@@ -10,6 +10,7 @@
       :profile="store.profile"
       :menu="menu" 
       :menuActive="menuActive"
+      v-if="Object.keys(aboutMe).length > 0"
     >
       <template v-slot:menu>
         <Menu 
@@ -20,13 +21,22 @@
       </template>
 
       <template v-slot:profile>
-        <Profile :profile="profile" />
+        <Profile 
+          :profile="profile" 
+          v-if="Object.keys(profile).length > 0"
+        />
       </template>
     </AboutMe>
 
     <div class="pb-6 md:pb-20 portfolio__lazytransition">
-      <Projects :projects="projects" />
-      <Contact :contact="contact[0]" />
+      <Projects 
+        :projects="projects" 
+        v-if="Object.keys(projects).length > 0"
+      />
+      <Contact 
+        :contact="contact[0]" 
+        v-if="contact[0]"
+      />
     </div>
   </div>
 </template>
@@ -147,7 +157,7 @@ export default {
       let newMenu = JSON.parse(JSON.stringify(menu.data.menu))
       let sortMenu: any = []
 
-      newMenu = newMenu.map((m) => {
+      newMenu = newMenu.map((m: { id: string; name: any }) => {
         if (m.id === 'experiences') sortMenu[0] = { id: m.id, name: m.name}
         if (m.id === 'projects') sortMenu[1] = { id: m.id, name: m.name}
         if (m.id === 'contact') sortMenu[2] = { id: m.id, name: m.name}

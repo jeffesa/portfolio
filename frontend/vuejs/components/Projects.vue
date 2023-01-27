@@ -21,7 +21,6 @@
   export default {
     props: {
       projects: {
-        type: Object,
         required: true
       }
     }
