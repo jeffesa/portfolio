@@ -3,22 +3,8 @@
     class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
     :class="(Object.keys(projects).length > 0 && Object.keys(contact).length > 0) && (Object.keys(aboutMe).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
   >
-    <div class="portfolio__language absolute flex text-xs font-normal z-10">
-      <span 
-        class="pr-2"
-        :class="language === 'pt' ? 'portfolio__language--active' : ''"
-        @click="setLanguage('pt')"
-      >
-        PT
-      </span>
-      <span 
-        :class="language === 'en' ? 'portfolio__language--active' : ''"
-        @click="setLanguage('en')"
-      >
-        EN
-      </span>
-    </div>
-
+    <Language :language="language" />
+    
     <AboutMe 
       :aboutMe="aboutMe" 
       :profile="store.profile"
@@ -304,30 +290,5 @@ export default {
     filter: blur(40px);
     opacity: 0;
   }
-.portfolio {
-
-  
-
-  .portfolio__language {
-    top: 24px;
-    right: 24px;
-    color: #878788;
-    cursor: pointer;
-
-    @screen lg {
-      top: 22px;
-      right: 40px;
-    }
-
-    @screen xl {
-      top: 30px;
-      right: 80px;
-    }
-
-    .portfolio__language--active {
-      color: #fff;
-      text-decoration-line: underline;
-    }
-  }
-}
+.portfolio {}
 </style>
