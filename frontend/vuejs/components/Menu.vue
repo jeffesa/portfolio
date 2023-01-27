@@ -36,7 +36,7 @@
   export default {
     props: {
       menu: {
-        type: Array,
+        type: Object,
         required: true
       },
       menuActive: {

@@ -40,6 +40,14 @@
 
 <script lang="ts">
 export default {
+  data(): any {
+    return {
+      name: null,
+      email: null,
+      labelPosition: null,
+    }
+  },
+
   props: {
     contact: {
       type: Object,

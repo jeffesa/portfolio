@@ -72,9 +72,9 @@ export default {
   // },
 
   mounted () {
-    if(process.browser){
-      window.addEventListener('scroll', this.scrollHandler)
-    }
+    // if(process.browser){
+    //   window.addEventListener('scroll', this.scrollHandler)
+    // }
 
     (async () => {
       this.menu = await this.getMenus()
@@ -85,11 +85,11 @@ export default {
     })()
   },
 
-  destroyed () {
-    if(process.browser){
-      window.removeEventListener('scroll', this.scrollHandler)
-    }
-  },
+  // destroyed () {
+  //   if(process.browser){
+  //     window.removeEventListener('scroll', this.scrollHandler)
+  //   }
+  // },
 
   methods: {
     overflowHidden(): any {
@@ -106,33 +106,33 @@ export default {
       this.store = lang === 'pt' ? this.$store.state.data.portfolio.language[0].pt : this.$store.state.data.portfolio.language[0].en
     },
 
-    scrollHandler(): any {
-      let sections = [...document.getElementsByTagName('section')]
-      let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
-      if (divPortfolio !== null) {
-        let posFloor = window.pageYOffset + divPortfolio.offsetHeight
-        let menu = this.store.menu
-
-
-        let sectionExperiences = sections[0] as HTMLElement | null
-        let sectionProjects = sections[1] as HTMLElement | null
-        let sectionContact = sections[2] as HTMLElement | null
-
-        if (sectionExperiences !== null && sectionProjects !== null && sectionContact !== null) {
-          if (posFloor <= (sectionExperiences.offsetTop + sectionExperiences.offsetHeight)) {
-            this.menuActive = sectionExperiences.id
-          } 
-
-          if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop) {
-            this.menuActive = sectionProjects.id
-          }
-
-          if (posFloor >= sectionContact.offsetTop && posFloor >= sectionProjects.offsetTop) {
-            this.menuActive = sectionContact.id
-          }
-        }
-      }
-    },
+//     scrollHandler(): any {
+//       let sections = [...document.getElementsByTagName('section')]
+//       let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
+//       if (divPortfolio !== null) {
+//         let posFloor = window.pageYOffset + divPortfolio.offsetHeight
+//         let menu = this.store.menu
+// 
+// 
+//         let sectionExperiences = sections[0] as HTMLElement | null
+//         let sectionProjects = sections[1] as HTMLElement | null
+//         let sectionContact = sections[2] as HTMLElement | null
+// 
+//         if (sectionExperiences !== null && sectionProjects !== null && sectionContact !== null) {
+//           if (posFloor <= (sectionExperiences.offsetTop + sectionExperiences.offsetHeight)) {
+//             this.menuActive = sectionExperiences.id
+//           } 
+// 
+//           if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop) {
+//             this.menuActive = sectionProjects.id
+//           }
+// 
+//           if (posFloor >= sectionContact.offsetTop && posFloor >= sectionProjects.offsetTop) {
+//             this.menuActive = sectionContact.id
+//           }
+//         }
+//       }
+//     },
 
     async getMenus() {
       let menu: any
