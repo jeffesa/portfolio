@@ -13,7 +13,7 @@
           <a 
             :href="`#${item.id}`"
             class="menu__item__link flex items-center" 
-            :class="(i === 0 && menuActive === '') || (item.id === isActive && isActive === 0) || menuActive === item.id ? 'menu__item__link--active' : ''"
+            :class="(i == 0 && menuActive === '') || (item.id === isActive && isActive === 0) || menuActive === item.id ? 'menu__item__link--active' : ''"
             @click="isActive = item.id"
           >
             <span 

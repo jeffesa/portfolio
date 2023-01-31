@@ -1,11 +1,10 @@
 <template>
-  <section class="projects">
-    <div 
+  <div class="projects">
+    <section 
       v-for="(project, i) in projects" 
       :key="i"
       :class="[`projects__${project.id}`, project.id === 'projects' ? 'mt-8 md:mt-10' : '']"
       :id="project.id"
-      v-scroll="scrollHandler"
     >
       <div>
         <Cards 
@@ -13,8 +12,8 @@
           @overflow="overflowHidden" 
         />
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -36,49 +35,49 @@
         }
       },
 
-      scrollHandler(): any {
-        let sections = [...document.getElementsByTagName('section')]
-        let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
-        if (divPortfolio !== null) {
-          let posFloor = window.pageYOffset + divPortfolio.offsetHeight
-          let menu = this.store.menu
-
-
-          let sectionExperiences = sections[0] as HTMLElement | null
-          let sectionProjects = sections[1] as HTMLElement | null
-          let sectionContact = sections[2] as HTMLElement | null
-
-          if (sectionExperiences !== null && sectionProjects !== null && sectionContact !== null) {
-            if (posFloor <= (sectionExperiences.offsetTop + sectionExperiences.offsetHeight)) {
-              this.menuActive = sectionExperiences.id
-            } 
-
-            if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop) {
-              this.menuActive = sectionProjects.id
-            }
-
-            if (posFloor >= sectionContact.offsetTop && posFloor >= sectionProjects.offsetTop) {
-              this.menuActive = sectionContact.id
-            }
-          }
-        }
-      },
+//       scrollHandler(): any {
+//         let sections = [...document.getElementsByTagName('section')]
+//         let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
+//         if (divPortfolio !== null) {
+//           let posFloor = window.pageYOffset + divPortfolio.offsetHeight
+//           let menu = this.store.menu
+// 
+// 
+//           let sectionExperiences = sections[0] as HTMLElement | null
+//           let sectionProjects = sections[1] as HTMLElement | null
+//           let sectionContact = sections[2] as HTMLElement | null
+// 
+//           if (sectionExperiences !== null && sectionProjects !== null && sectionContact !== null) {
+//             if (posFloor <= (sectionExperiences.offsetTop + sectionExperiences.offsetHeight)) {
+//               this.menuActive = sectionExperiences.id
+//             } 
+// 
+//             if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop) {
+//               this.menuActive = sectionProjects.id
+//             }
+// 
+//             if (posFloor >= sectionContact.offsetTop && posFloor >= sectionProjects.offsetTop) {
+//               this.menuActive = sectionContact.id
+//             }
+//           }
+//         }
+//       },
     },
 
     mounted () {
       const inBrowser = typeof window !== 'undefined';
 
-      if (inBrowser) {
-        window.addEventListener('scroll', this.scrollHandler)
-      }
+      // if (inBrowser) {
+      //   window.addEventListener('scroll', this.scrollHandler)
+      // }
     },
 
     destroyed () {
       const inBrowser = typeof window !== 'undefined';
 
-      if (inBrowser) {
-        window.removeEventListener('scroll', this.scrollHandler)
-      }
+      // if (inBrowser) {
+      //   window.removeEventListener('scroll', this.scrollHandler)
+      // }
     },
   }
 </script>
