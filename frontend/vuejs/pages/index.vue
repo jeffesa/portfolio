@@ -54,7 +54,7 @@ export default {
       name: null,
       email: null,
       labelPosition: null,
-      menu: null,
+      menu: Object,
       aboutMe: Object,
       profile: Object,
       projects: Object,
@@ -73,7 +73,7 @@ export default {
   // },
 
   mounted () {
-    if(process.browser){
+    if(typeof window !== 'undefined'){
       window.addEventListener('scroll', this.scrollHandler)
     }
 

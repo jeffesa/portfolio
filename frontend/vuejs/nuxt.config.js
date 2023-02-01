@@ -1,4 +1,7 @@
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: true,
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -44,6 +47,10 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
 
+  tailwindcss: {
+    viewer: false
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     ['nuxt-buefy', { css: true, materialDesignIcons: false }],
@@ -68,6 +75,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/vue-vue-simple-icons/],
+    publicPath: process.env.NODE_ENV === 'production' ? './vuejs' : false,
     postcss: {
       // Add plugin names as key and arguments as value
       // Install them before as dependencies with npm or yarn

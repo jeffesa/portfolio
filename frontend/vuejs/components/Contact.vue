@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
   .contact {
-    :deep {
+    :deep() {
       .label {
         @apply text-white;
         @apply text-sm;
