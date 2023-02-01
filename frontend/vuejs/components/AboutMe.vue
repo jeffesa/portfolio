@@ -5,7 +5,7 @@
           <h1 
             class="about-me__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
             v-text="aboutMe.name"
-            v-if="Object.keys(aboutMe.name).length === 0 || aboutMe.name !== ''"
+            v-if="aboutMe.name !== null || aboutMe.name !== '' || typeof aboutMe !== 'undefined'"
           />
           <h2 
             class="about-me__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"

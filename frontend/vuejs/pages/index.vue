@@ -1,16 +1,16 @@
 <template>
   <div 
     class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
-    :class="(Object.keys(projects).length > 0 && Object.keys(contact).length > 0) && (Object.keys(aboutMe).length > 0 && Object.keys(menu).length > 0) ? '' : 'portfolio__lazyload'"
+    :class="(typeof projects !== 'function' && typeof contact !== 'function') && (typeof aboutMe !== 'function' && typeof menu !== 'function') ? '' : 'portfolio__lazyload'"
+    v-if="typeof projects !== 'function' && typeof aboutMe !== 'function' && typeof menu !== 'function' && typeof profile !== 'function'"
   >
     <Language :language="language" />
     
     <AboutMe 
       :aboutMe="aboutMe" 
       :profile="store.profile"
-      :menu="menu" 
       :menuActive="menuActive"
-      v-if="Object.keys(aboutMe).length > 0"
+      v-if="(typeof aboutMe !== 'function')"
     >
       <template v-slot:menu>
         <Menu 
@@ -23,7 +23,7 @@
       <template v-slot:profile>
         <Profile 
           :profile="profile" 
-          v-if="Object.keys(profile).length > 0"
+          v-if="typeof profile !== 'function'"
         />
       </template>
     </AboutMe>
@@ -31,7 +31,7 @@
     <div class="pb-6 md:pb-20 portfolio__lazytransition">
       <Projects 
         :projects="projects" 
-        v-if="Object.keys(projects).length > 0"
+        v-if="typeof projects !== 'function'"
         v-scroll="scrollHandler"
       />
       <Contact 
