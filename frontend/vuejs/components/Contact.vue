@@ -1,11 +1,11 @@
 <template>
   <section 
-    class="contact text-xs mt-8 md:mt-20"
+    class="contact text-xs mt-6 md:mt-8"
     :id="contact.id"
     v-if="contact !== undefined"
   >
     <span 
-      class="contact__title block text-white uppercase pb-1 lg:pb-5"
+      class="contact__title block text-white uppercase text-base font-semibold pb-1 lg:pb-0 block md:hidden mb-4"
       v-text="contact.title"
       v-if="contact.title"
     />
@@ -77,9 +77,9 @@ export default {
     }
     
     .contact__title {
-      @apply text-xs;
-      @apply font-semibold;
-      @apply leading-6;
+      // @apply text-xs;
+      // @apply font-semibold;
+      // @apply leading-6;
       letter-spacing: 3px;
 
       @screen lg {

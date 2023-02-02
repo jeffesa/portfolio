@@ -7,6 +7,7 @@
       :id="project.id"
     >
       <div>
+        <span class="block text-white uppercase pb-1 lg:pb-0 mb-2 block md:hidden text-base font-semibold" v-html="project.title" />
         <Cards 
           :cards="project.cards"
           @overflow="overflowHidden" 
