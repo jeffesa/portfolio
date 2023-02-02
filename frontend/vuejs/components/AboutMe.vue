@@ -1,7 +1,7 @@
 <template>
   <div class="about-me flex flex-col justify-start relative">
       <div class="relative lg:fixed">
-        <div class="pt-5 lg:pt-0">
+        <div class="pt-8 lg:pt-0">
           <h1 
             class="about-me__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
             v-text="aboutMe.name"

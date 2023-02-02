@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-6 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
+    class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
     :class="(typeof projects !== 'function' && typeof contact !== 'function') && (typeof aboutMe !== 'function' && typeof menu !== 'function') ? '' : 'portfolio__lazyload'"
     v-if="typeof projects !== 'function' && typeof aboutMe !== 'function' && typeof menu !== 'function' && typeof profile !== 'function'"
   >
