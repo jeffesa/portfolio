@@ -47,7 +47,13 @@
           :style="{color: card.color.information}"
         />
         <div class="cards__item__detach flex">
-          <img :src="card.image" class="cards__item__image hidden relative z-10 h-full" />
+          <!-- <img :src="card.image" class="cards__item__image hidden relative z-10 h-full" /> -->
+          <nuxt-img 
+            :src="card.image" 
+            v-if="typeof card.image === 'string' && card.image != ''" 
+            class="cards__item__image hidden relative z-10 h-full" 
+            loading="lazy" 
+          />
         </div>
       </li>
     </ul>

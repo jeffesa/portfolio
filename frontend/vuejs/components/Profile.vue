@@ -1,9 +1,11 @@
 <template>
   <div class="profile flex justify-center lg:justify-start pt-8 lg:pt-32 pb-8 lg:pb-0" v-if="profile">
     <div class="profile__container__photo">
-      <img alt="" 
-        :src="profile.image"
+      <nuxt-img 
+        :src="profile.image" 
+        v-if="typeof profile.image === 'string' && profile.image != ''" 
         class="profile__photo" 
+        loading="lazy" 
       />
     </div>
     <div class="flex profile__networks">
