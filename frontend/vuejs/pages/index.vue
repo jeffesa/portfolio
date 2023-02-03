@@ -4,19 +4,19 @@
     :class="(typeof projects !== 'function' && typeof contact !== 'function') && (typeof aboutMe !== 'function' && typeof menu !== 'function') ? '' : 'portfolio__lazyload'"
     v-if="typeof projects !== 'function' && typeof aboutMe !== 'function' && typeof menu !== 'function' && typeof profile !== 'function'"
   >
-    <Language :language="language" />
+    <Language :language="language" @setLanguage="emitSetLanguage" />
     
     <AboutMe 
-      :aboutMe="aboutMe" 
+      :aboutMe="aboutMeResult" 
       :profile="store.profile"
       :menuActive="menuActive"
-      v-if="(typeof aboutMe !== 'function')"
+      v-if="(typeof aboutMeResult !== 'function')"
     >
       <template v-slot:menu>
         <Menu 
-          :menu="menu" 
+          :menu="menuResult" 
           :menuActive="menuActive"
-          v-if="menu" 
+          v-if="menuResult" 
         />
       </template>
 
@@ -30,8 +30,8 @@
 
     <div class="pb-6 md:pb-20 portfolio__lazytransition">
       <Projects 
-        :projects="projects" 
-        v-if="typeof projects !== 'function'"
+        :projects="projectsResult" 
+        v-if="typeof projectsResult !== 'function'"
         v-scroll="scrollHandler"
       />
       <Contact 
@@ -55,10 +55,13 @@ export default {
       email: null,
       labelPosition: null,
       menu: Object,
+      menuResult: Object,
       aboutMe: Object,
+      aboutMeResult: Object,
       profile: Object,
       projects: Object,
-      contact: Object
+      projectsResult: Object,
+      contact: Object,
     }
   },
 
@@ -102,9 +105,11 @@ export default {
       }
     },
 
-    setLanguage(lang: string): any {
+    emitSetLanguage(lang: string): any {
       this.language = lang
-      this.store = lang === 'pt' ? this.$store.state.data.portfolio.language[0].pt : this.$store.state.data.portfolio.language[0].en
+      this.getAboutMe()
+      this.getMenus()
+      this.getProjects()
     },
 
     scrollHandler(): any {
@@ -164,12 +169,14 @@ export default {
         if (m.id === 'contact') sortMenu[2] = { id: m.id, name: m.name}
       })
 
-      sortMenu = Object.assign({}, sortMenu)
+      this.menuResult = Object.assign({}, sortMenu)
+
+      sortMenu = this.menuResult
 
       return sortMenu
     },
 
-    async getAboutMe() {
+    async getAboutMe(lang: string) {
       let aboutMe: any
 
       const getAboutMe = gql`
@@ -192,7 +199,9 @@ export default {
         }
       })
 
-      return aboutMe.data.professional[0]
+      this.aboutMeResult = aboutMe.data.professional[0]
+
+      return this.aboutMeResult
     },
 
     async getProfile() {
@@ -235,7 +244,7 @@ export default {
             projects: projects {
               title
               id
-              cards: cards_projects_1 {
+              cards: cards_projects_1 (where: {language: {_eq: "${this.language}"}}) {
                 color
                 description
                 icon
@@ -259,7 +268,9 @@ export default {
         }
       })
 
-      return projects.data.projects
+      this.projectsResult = projects.data.projects
+
+      return this.projectsResult
     },
 
     async getContact() {

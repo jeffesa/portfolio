@@ -3,13 +3,13 @@
       <span 
         class="pr-2"
         :class="language === 'pt' ? 'language--active' : ''"
-        @click="setLanguage('pt')"
+        @click="$emit('setLanguage', 'pt')"
       >
         PT
       </span>
       <span 
         :class="language === 'en' ? 'language--active' : ''"
-        @click="setLanguage('en')"
+        @click="$emit('setLanguage', 'en')"
       >
         EN
       </span>
