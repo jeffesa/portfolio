@@ -129,7 +129,7 @@ export default {
             this.menuActive = sectionExperiences.id
           } 
 
-          if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop) {
+          if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop + 500) {
             this.menuActive = sectionProjects.id
           }
 
