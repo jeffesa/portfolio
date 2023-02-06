@@ -7,7 +7,10 @@
       :id="project.id"
     >
       <div>
-        <span class="block text-white uppercase pb-1 lg:pb-0 mb-2 block md:hidden text-base font-semibold" v-html="project.title" />
+        <span 
+          class="block text-white uppercase py-2 lg:pb-0 m-0 block md:hidden text-base font-semibold sticky top-0 z-40"
+          :class="`projects__${project.id}__title`" v-html="project.title" 
+        />
         <Cards 
           :cards="project.cards"
           @overflow="overflowHidden" 
@@ -87,12 +90,14 @@
   .projects {
     .projects__experiences {
       .projects__experiences__title {
+        background: #151515;
         letter-spacing: 3px;
       }
     }
 
     .projects__projects {
       .projects__projects__title {
+        background: #151515;
         letter-spacing: 3px;
       }
 
