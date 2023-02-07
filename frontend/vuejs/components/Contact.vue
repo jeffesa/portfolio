@@ -9,22 +9,22 @@
       v-text="contact.title"
       v-if="contact.title"
     />
-    <!-- <span 
+    <span 
       class="contact__email block text-white"
-      v-text="contact.email"
+      v-text="language == 'en' ? `Email: ${contact.email}` : `Email: ${contact.email}`"
       v-if="contact.email"
     />
     <span 
       class="contact__phone block text-white pt-1 lg:pt-2"
-      v-text="contact.phone"
+      v-text="language == 'en' ? `Phone: ${contact.phone}` : `Telefone: ${contact.phone}`"
       v-if="contact.phone"
     />
     <span 
       class="contact__location block pt-1 lg:pt-2" 
-      v-text="contact.location" 
+      v-text="language == 'en' ? `City: ${contact.location}` : `Cidade: ${contact.location}`"
       v-if="contact.location"
-    /> -->
-    <b-field label="Name">
+    />
+    <!-- <b-field label="Name">
         <b-input v-model="name"></b-input>
     </b-field>
     <b-field label="Email">
@@ -34,7 +34,7 @@
         :label-position="labelPosition">
         <b-input maxlength="200" type="textarea"></b-input>
     </b-field>
-    <b-button type="is-primary">Enviar</b-button>
+    <b-button type="is-primary">Enviar</b-button> -->
   </section>
 </template>
 
@@ -51,6 +51,10 @@ export default {
   props: {
     contact: {
       type: Object,
+      required: false
+    },
+    language: {
+      type: String,
       required: false
     }
   }

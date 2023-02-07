@@ -43,6 +43,7 @@
         />
         <Contact 
           :contact="contact[0]" 
+          :language="language"
           v-if="contact[0]"
         />
       </div>
