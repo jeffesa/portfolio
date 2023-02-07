@@ -334,7 +334,7 @@ export default {
   }
 
   .progress-bar__progress {
-    background-color: #42b883;
+    background-color: #fff;
     position: absolute;
     bottom: 0;
     top: 0;
