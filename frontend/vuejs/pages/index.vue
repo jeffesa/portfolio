@@ -241,22 +241,22 @@ export default {
 
       const getProjects = gql`
         query {
-            projects: projects {
-              title
-              id
-              cards: cards_projects_1 (where: {language: {_eq: "${this.language}"}}) {
-                color
-                description
-                icon
-                id
-                image
-                information
-                link
-                project_id
-                subtitle
-                title
-              }
-            }
+          projects: projects {
+          title
+          id
+          cards: cards_projects_1(where: {language: {_eq: "${this.language}"}}, order_by: {order: asc}) {
+            color
+            description
+            icon
+            id
+            image
+            information
+            link
+            project_id
+            subtitle
+            title
+          }
+        }
           }
       `
 
