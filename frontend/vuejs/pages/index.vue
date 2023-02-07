@@ -1,43 +1,51 @@
 <template>
-  <div 
-    class="portfolio container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-10 lg:pt-16 xl:p-20 h-full portfolio__lazytransition"
-    :class="(typeof projects !== 'function' && typeof contact !== 'function') && (typeof aboutMe !== 'function' && typeof menu !== 'function') ? '' : 'portfolio__lazyload'"
-    v-if="typeof projects !== 'function' && typeof aboutMe !== 'function' && typeof menu !== 'function' && typeof profile !== 'function'"
-  >
-    <Language :language="language" @setLanguage="emitSetLanguage" />
-    
-    <AboutMe 
-      :aboutMe="aboutMeResult" 
-      :profile="store.profile"
-      :menuActive="menuActive"
-      v-if="(typeof aboutMeResult !== 'function')"
+  <div class="portfolio">
+    <div 
+      class="progress-bar"
+      :class="(typeof projects !== 'function' && typeof contact !== 'function') && (typeof aboutMe !== 'function' && typeof menu !== 'function') ? 'hidden' : ''"
     >
-      <template v-slot:menu>
-        <Menu 
-          :menu="menuResult" 
-          :menuActive="menuActive"
-          v-if="menuResult" 
-        />
-      </template>
+      <div class="progress-bar__progress"></div>
+    </div>
 
-      <template v-slot:profile>
-        <Profile 
-          :profile="profile" 
-          v-if="typeof profile !== 'function'"
-        />
-      </template>
-    </AboutMe>
+    <div 
+      class="container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-10 lg:pt-16 xl:p-20 h-full"
+      v-if="typeof projects !== 'function' && typeof aboutMe !== 'function' && typeof menu !== 'function' && typeof profile !== 'function'"
+    >
+      <Language :language="language" @setLanguage="emitSetLanguage" />
+      
+      <AboutMe 
+        :aboutMe="aboutMeResult" 
+        :profile="store.profile"
+        :menuActive="menuActive"
+        v-if="(typeof aboutMeResult !== 'function')"
+      >
+        <template v-slot:menu>
+          <Menu 
+            :menu="menuResult" 
+            :menuActive="menuActive"
+            v-if="menuResult" 
+          />
+        </template>
 
-    <div class="pb-6 md:pb-20 portfolio__lazytransition">
-      <Projects 
-        :projects="projectsResult" 
-        v-if="typeof projectsResult !== 'function'"
-        v-scroll="scrollHandler"
-      />
-      <Contact 
-        :contact="contact[0]" 
-        v-if="contact[0]"
-      />
+        <template v-slot:profile>
+          <Profile 
+            :profile="profile" 
+            v-if="typeof profile !== 'function'"
+          />
+        </template>
+      </AboutMe>
+
+      <div class="pb-6 md:pb-20 portfolio__lazytransition">
+        <Projects 
+          :projects="projectsResult" 
+          v-if="typeof projectsResult !== 'function'"
+          v-scroll="scrollHandler"
+        />
+        <Contact 
+          :contact="contact[0]" 
+          v-if="contact[0]"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -312,5 +320,37 @@ export default {
     filter: blur(40px);
     opacity: 0;
   }
-.portfolio {}
+.portfolio {
+  .progress-bar {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #151515;
+    overflow: hidden;
+    z-index: 99999;
+  }
+
+  .progress-bar__progress {
+    background-color: #42b883;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 50%;
+    height: 5px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: progress-bar;
+  }
+
+  @keyframes progress-bar {
+      from {
+          left: -50%;
+      }
+      to {
+          left: 100%;
+      }
+  }
+}
 </style>
