@@ -123,8 +123,9 @@ export default {
     scrollHandler(): any {
       let sections = [...document.getElementsByTagName('section')]
       let divPortfolio = document.querySelector('.portfolio') as HTMLElement | null
+
       if (divPortfolio !== null) {
-        let posFloor = window.pageYOffset + divPortfolio.offsetHeight
+        let posFloor = Math.abs(window.pageYOffset + window.innerHeight)
         let menu = this.store.menu
 
         let sectionExperiences = sections[0] as HTMLElement | null
@@ -133,15 +134,15 @@ export default {
 
 
         if (sectionExperiences !== null && sectionProjects !== null && sectionContact !== null) {
-          if (posFloor <= (sectionExperiences.offsetTop + sectionExperiences.offsetHeight)) {
+          if (posFloor <= sectionProjects.offsetTop) {
             this.menuActive = sectionExperiences.id
-          } 
+          }
 
-          if (posFloor >= sectionProjects.offsetTop && posFloor <= sectionContact.offsetTop + 500) {
+          if (posFloor <= sectionContact.offsetTop && posFloor >= sectionProjects.offsetTop && posFloor >= sectionExperiences.offsetTop) {
             this.menuActive = sectionProjects.id
           }
 
-          if (posFloor >= sectionContact.offsetTop + 100 && posFloor >= sectionProjects.offsetTop) {
+          if (!(posFloor <= sectionProjects.offsetTop) && !(posFloor <= sectionContact.offsetTop + 100 && posFloor >= sectionProjects.offsetTop && posFloor >= sectionExperiences.offsetTop)) {
             this.menuActive = sectionContact.id
           }
         }
