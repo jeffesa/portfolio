@@ -10,14 +10,16 @@
       v-if="contact.title"
     />
     <span 
-      class="contact__email block text-white"
-      v-text="language == 'en' ? `Email: ${contact.email}` : `Email: ${contact.email}`"
+      class="contact__email block text-white cursor-pointer"
+      v-text="language == 'en' ? `Email: ${hideText(contact.email)}` : `Email: ${hideText(contact.email)}`"
       v-if="contact.email"
+      @click="showEmail = !showEmail"
     />
     <span 
-      class="contact__phone block text-white pt-1 lg:pt-2"
-      v-text="language == 'en' ? `Phone: ${contact.phone}` : `Telefone: ${contact.phone}`"
+      class="contact__phone block text-white pt-1 lg:pt-2 cursor-pointer"
+      v-text="language == 'en' ? `Phone: ${hideText(contact.phone)}` : `Telefone: ${hideText(contact.phone)}`"
       v-if="contact.phone"
+      @click="showPhone = !showPhone"
     />
     <span 
       class="contact__location block pt-1 lg:pt-2" 
@@ -45,6 +47,8 @@ export default {
       name: null,
       email: null,
       labelPosition: null,
+      showEmail: false,
+      showPhone: false
     }
   },
 
@@ -57,6 +61,25 @@ export default {
       type: String,
       required: false
     }
+  },
+
+  methods: {
+    hideText(text: String): any {
+      let textReturn: String
+
+      if (this.isPhoneNumber(text)) {
+        textReturn = this.showPhone == false ? `${text.slice(0,10)}...` : text
+      } else {
+        textReturn = this.showEmail == false ? `${text.substring(0, text.split('@')[0].length + 1, text.indexOf('@'))}...` : text
+      }
+
+      return textReturn
+    },
+
+    isPhoneNumber(phone: String): any {
+      return /^[\+]?\d{2,}?[(]?\d{2,}[)]?[-\s\.]?\d{2,}?[-\s\.]?\d{2,}[-\s\.]?\d{0,9}$/im.test(phone.replace('-', '').replace(' ', ''));  
+    }
+
   }
 }
 </script>
