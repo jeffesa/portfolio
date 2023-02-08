@@ -121,6 +121,8 @@ export default {
       @apply text-sm;
       @apply font-semibold;
       @apply leading-6;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
 
       @screen lg {
         @apply text-base;
@@ -145,6 +147,8 @@ export default {
       @apply text-xs;
       @apply font-semibold;
       @apply leading-4;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
 
       @screen lg {
         @apply text-sm;
