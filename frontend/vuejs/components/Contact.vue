@@ -11,12 +11,14 @@
     />
     <span 
       class="contact__email block text-white cursor-pointer"
+      :class="!showEmail ? 'contact__text__shadow' : ''"
       v-text="language == 'en' ? `Email: ${hideText(contact.email)}` : `Email: ${hideText(contact.email)}`"
       v-if="contact.email"
       @click="showEmail = !showEmail"
     />
     <span 
       class="contact__phone block text-white pt-1 lg:pt-2 cursor-pointer"
+      :class="!showPhone ? 'contact__text__shadow' : ''"
       v-text="language == 'en' ? `Phone: ${hideText(contact.phone)}` : `Telefone: ${hideText(contact.phone)}`"
       v-if="contact.phone"
       @click="showPhone = !showPhone"
@@ -68,9 +70,9 @@ export default {
       let textReturn: String
 
       if (this.isPhoneNumber(text)) {
-        textReturn = this.showPhone == false ? `${text.slice(0,10)}...` : text
+        textReturn = this.showPhone == false ? `${text.slice(0,10)}` : text
       } else {
-        textReturn = this.showEmail == false ? `${text.substring(0, text.split('@')[0].length + 1)}...` : text
+        textReturn = this.showEmail == false ? `${text.substring(0, text.split('@')[0].length + 1)}` : text
       }
 
       return textReturn
@@ -122,6 +124,19 @@ export default {
 
       @screen lg {
         @apply text-base;
+      }
+    }
+
+    .contact__text__shadow {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 64px;
+        height: 11px;
+        box-shadow: 0px 0px 19px 11px #151515;
+        background: #151515;
+        margin-left: 0px;
+        margin-top: 9px;
       }
     }
 
