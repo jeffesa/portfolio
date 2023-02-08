@@ -266,6 +266,20 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+
+        :deep(strong) {
+          color: #fff !important;
+          font-weight: 600 !important;
+        }
+
+        :deep(a) {
+          color: #fff !important;
+          font-weight: 600 !important;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
 
       &.cards__item--active {
