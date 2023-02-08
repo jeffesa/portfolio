@@ -182,7 +182,7 @@
 
       &.cards__item--active {      
         position: fixed !important;
-        z-index: 10;  
+        z-index: 999;  
         box-shadow: none !important;
         transform: scale(1) !important;
         transition: none !important;
