@@ -256,7 +256,9 @@
         }
       }
     
-      .cards__item__subtitle {}
+      .cards__item__subtitle {
+        color: #fff;
+      }
     
       .cards__item__description {
         color: #949495;
