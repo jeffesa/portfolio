@@ -70,7 +70,7 @@ export default {
       if (this.isPhoneNumber(text)) {
         textReturn = this.showPhone == false ? `${text.slice(0,10)}...` : text
       } else {
-        textReturn = this.showEmail == false ? `${text.substring(0, text.split('@')[0].length + 1, text.indexOf('@'))}...` : text
+        textReturn = this.showEmail == false ? `${text.substring(0, text.split('@')[0].length + 1)}...` : text
       }
 
       return textReturn
