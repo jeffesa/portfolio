@@ -267,6 +267,12 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
       }
+
+      &.cards__item--active {
+        .cards__item__description {
+          -webkit-line-clamp: inherit !important;
+        }
+      }
     
       .cards__item__information {
         color: #949495;
