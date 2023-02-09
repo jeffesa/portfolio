@@ -264,7 +264,8 @@ export default {
             link
             project_id
             subtitle
-            title
+            title,
+            detach
           }
         }
           }

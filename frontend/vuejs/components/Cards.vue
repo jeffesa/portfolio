@@ -41,12 +41,21 @@
           v-html="card.description"
           :style="{color: card.color.description}"
         />
-        <p 
-          class="cards__item__information font-bold mt-2 relative z-10"
-          v-html="card.information"
-          :style="{color: card.color.information}"
-        />
-        <div class="cards__item__detach flex">
+        <div class="flex justify-between mt-3 md:mt-3">
+          <p 
+            class="cards__item__information font-bold relative z-10"
+            v-html="card.information"
+            :style="{color: card.color.information}"
+          />
+
+          <div class="cards__item__detach" :style="{color: card.color}">
+            <span 
+              v-if="card.detach" 
+              v-html="card.detach" 
+            />
+          </div>
+        </div>
+        <div class="cards__item__image flex">
           <!-- <img :src="card.image" class="cards__item__image hidden relative z-10 h-full" /> -->
           <nuxt-img 
             :src="card.image" 
@@ -230,7 +239,7 @@
           }
         }
 
-        .cards__item__detach {
+        .cards__item__image {
           //height: calc(100% - $card_decrease_size + 2.5rem + $card_margin/2);
           height: auto;
           margin-top: $card_margin;
@@ -293,6 +302,13 @@
         letter-spacing: 1px;
         font-size: 10px;
       }      
+
+      .cards__item__detach {
+        color: #949495;
+        letter-spacing: 1px;
+        font-size: 12px;
+        z-index: 1;
+      }
     }
   }
 }
