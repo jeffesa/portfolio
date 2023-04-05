@@ -1,13 +1,17 @@
 <template>
   <div 
-    class="cards"
-    :class="modalActive !== null  ? 'cards__has-modal' : ''"
+    :class="[
+      'cards', 
+      {'cards__has-modal': modalActive !== null}
+    ]"
     v-if="cards"
   >
     <ul class="cards__list pt-2">
       <li 
-        class="cards__item p-6 md:p-10 mb-2"
-        :class="i === modalActive && (card.link === '' || card.link === null) ? 'cards__item--active' : ''"
+        :class="[
+          'cards__item p-6 md:p-10 mb-2', 
+          {'cards__item--active': i === modalActive && (card.link === '' || card.link === null)}
+        ]"
         v-for="(card, i) in cards"
         :key="i"
         @click.stop="modalActive = i"

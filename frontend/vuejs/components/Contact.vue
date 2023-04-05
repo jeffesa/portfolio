@@ -10,15 +10,19 @@
       v-if="contact.title"
     />
     <span 
-      class="contact__email block text-white cursor-pointer"
-      :class="!showEmail ? 'contact__text__shadow' : ''"
+      :class="[
+        'contact__email block text-white cursor-pointer', 
+        {'contact__text__shadow': !showEmail}
+      ]"
       v-text="language == 'en' ? `Email: ${hideText(contact.email)}` : `Email: ${hideText(contact.email)}`"
       v-if="contact.email"
       @click="showEmail = !showEmail"
     />
     <span 
-      class="contact__phone block text-white pt-1 lg:pt-2 cursor-pointer"
-      :class="!showPhone ? 'contact__text__shadow' : ''"
+      :class="[
+        'contact__phone block text-white pt-1 lg:pt-2 cursor-pointer', 
+        {'contact__text__shadow': !showPhone}
+      ]"
       v-text="language == 'en' ? `Phone: ${hideText(contact.phone)}` : `Telefone: ${hideText(contact.phone)}`"
       v-if="contact.phone"
       @click="showPhone = !showPhone"

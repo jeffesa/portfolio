@@ -1,14 +1,16 @@
 <template>
   <div class="language absolute flex text-xs font-normal z-10">
       <span 
-        class="pr-2"
-        :class="language === 'pt' ? 'language--active' : ''"
+        :class="[
+          'pr-2', 
+          {'language--active': language === 'pt' }
+        ]"
         @click="$emit('setLanguage', 'pt')"
       >
         PT
       </span>
       <span 
-        :class="language === 'en' ? 'language--active' : ''"
+        :class="{'language--active': language === 'en'}"
         @click="$emit('setLanguage', 'en')"
       >
         EN

@@ -3,13 +3,19 @@
     <section 
       v-for="(project, i) in projects" 
       :key="i"
-      :class="[`projects__${project.id}`, project.id === 'projects' ? 'mt-8 md:mt-10' : '']"
+      :class="[
+        `projects__${project.id}`, 
+        project.id === 'projects' ? 'mt-8 md:mt-10' : ''
+      ]"
       :id="project.id"
     >
       <div>
         <span 
-          class="block text-white uppercase py-2 lg:pb-0 m-0 block md:hidden text-base font-semibold sticky top-0 z-40"
-          :class="`projects__${project.id}__title`" v-html="project.title" 
+          :class="[
+            `projects__${project.id}__title`, 
+            'block text-white uppercase py-2 lg:pb-0 m-0 block md:hidden text-base font-semibold sticky top-0 z-40'
+          ]" 
+          v-html="project.title" 
         />
         <Cards 
           :cards="project.cards"

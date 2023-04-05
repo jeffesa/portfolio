@@ -1,15 +1,16 @@
 <template>
   <div class="portfolio">
     <div 
-      class="progress-bar"
-      :class="(typeof projects !== 'function' && typeof contact !== 'function') && (typeof aboutMe !== 'function' && typeof menu !== 'function') ? 'hidden' : ''"
+      :class="[
+        'progress-bar', 
+        {hidden: !visible}
+      ]"
     >
       <div class="progress-bar__progress"></div>
     </div>
 
     <div 
       class="container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-10 lg:pt-16 xl:p-20 h-full"
-      v-if="typeof projects !== 'function' && typeof aboutMe !== 'function' && typeof menu !== 'function' && typeof profile !== 'function'"
     >
       <Language :language="language" @setLanguage="emitSetLanguage" />
       
@@ -70,7 +71,22 @@ export default {
       profile: Object,
       projects: Object,
       projectsResult: Object,
-      contact: Object,
+      contact: Object
+    }
+  },
+
+  computed: {
+    visible() {
+      if (
+          typeof this.projects !== 'function' && 
+          typeof this.aboutMe !== 'function' && 
+          typeof this.menu !== 'function' &&
+          typeof this.contact !== 'function' && 
+          typeof this.profile !== 'function'
+        ) {
+        return false
+      } 
+      return true
     }
   },
 
