@@ -17,13 +17,12 @@
         @click.stop="modalActive = i"
         @click="openLink(card.link)"
       >
-        <div 
-          class="cards__item__title uppercase flex relative z-10"
-        >
+        <div class="cards__item__title uppercase flex relative z-10">
           <div class="flex flex-row-reverse items-center">
             <Icon 
               class="mr-2"
-              :icon="card.icon" v-if="card.icon"
+              :icon="card.icon" 
+              v-if="card.icon"
               :color="card.color"
             >
               {{card.title}}
