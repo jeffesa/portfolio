@@ -32,17 +32,6 @@
       v-text="language == 'en' ? `City: ${contact.location}` : `Cidade: ${contact.location}`"
       v-if="contact.location"
     />
-    <!-- <b-field label="Name">
-        <b-input v-model="name"></b-input>
-    </b-field>
-    <b-field label="Email">
-        <b-input v-model="email"></b-input>
-    </b-field>
-    <b-field label="Message"
-        :label-position="labelPosition">
-        <b-input maxlength="200" type="textarea"></b-input>
-    </b-field>
-    <b-button type="is-primary">Enviar</b-button> -->
   </section>
 </template>
 
