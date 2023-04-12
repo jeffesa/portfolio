@@ -29,7 +29,7 @@
         <template v-slot:profile>
           <Profile 
             :profile="profile" 
-            v-if="typeof profile !== 'function'"
+            v-if="(typeof profile !== 'function')"
           />
         </template>
       </AboutMe>
@@ -37,7 +37,7 @@
       <div class="pb-6 md:pb-20 portfolio__lazytransition">
         <Projects 
           :projects="projectsResult" 
-          v-if="typeof projectsResult !== 'function'"
+          v-if="(typeof projectsResult !== 'function')"
           v-scroll="scrollHandler"
         />
         <Contact 

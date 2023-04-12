@@ -1,5 +1,8 @@
 <template>
-  <div class="profile flex justify-center lg:justify-start pt-8 lg:pt-32 pb-8 lg:pb-0" v-if="profile">
+  <div 
+    class="profile flex justify-center lg:justify-start pt-8 lg:pt-32 pb-8 lg:pb-0" 
+    v-if="profile"
+  >
     <div class="profile__container__photo">
       <nuxt-img 
         :src="profile.image" 
@@ -21,7 +24,7 @@
           :icon="network.icon" v-if="network.icon"
           :color="network.color"
         >
-          {{network.title}}
+          {{ network.title }}
         </Icon>
       </a>
     </div>
