@@ -5,7 +5,7 @@
           <h1 
             class="about-me__title font-bold leading-tight lg:text-4xl lg:leading-none text-zenith"
             v-text="aboutMe.name"
-            v-if="aboutMe.name !== null || aboutMe.name !== '' || typeof aboutMe !== 'undefined'"
+            v-if="hasAboutMe"
           />
           <h2 
             class="about-me__subtitle mt-2 sm:text-2xl font-semibold leading-tight text-sunrise"
@@ -17,7 +17,6 @@
             v-html="aboutMe.description"
             v-if="aboutMe.description"
           />
-          <slot />
           <slot name="menu" />
         </div>
         <slot name="profile" />
@@ -36,6 +35,13 @@
         type: Object,
         required: true
       },
+    },
+    computed: {
+      hasAboutMe() {
+        if (this.aboutMe.name !== null || this.aboutMe.name !== '' || typeof this.aboutMe !== 'undefined') {
+          return true
+        }
+      }
     }
   }
 </script>
