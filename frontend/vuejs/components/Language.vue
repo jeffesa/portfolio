@@ -6,15 +6,11 @@
           {'language--active': language === 'pt' }
         ]"
         @click="$emit('setLanguage', 'pt')"
-      >
-        PT
-      </span>
+      >PT</span>
       <span 
         :class="{'language--active': language === 'en'}"
         @click="$emit('setLanguage', 'en')"
-      >
-        EN
-      </span>
+      >EN</span>
     </div>
 </template>
 

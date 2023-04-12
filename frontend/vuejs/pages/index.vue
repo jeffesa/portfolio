@@ -9,9 +9,7 @@
       <div class="progress-bar__progress"></div>
     </div>
 
-    <div 
-      class="container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-10 lg:pt-16 xl:p-20 h-full"
-    >
+    <div class="container m-auto relative grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-10 lg:pt-16 xl:p-20 h-full">
       <Language :language="language" @setLanguage="emitSetLanguage" />
       
       <AboutMe 
