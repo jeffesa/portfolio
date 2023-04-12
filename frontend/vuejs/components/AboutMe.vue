@@ -70,7 +70,6 @@
     .about-me__description {
       max-width: 100%;
       color: #878788;
-      //line-height: 2px;
       
       @apply text-sm;
       @apply leading-6;

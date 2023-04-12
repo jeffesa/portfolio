@@ -85,7 +85,6 @@
           }
 
           .cards__item:nth-child(2n + 1) {
-            //background: red !important;
             @apply mt-0;
             @apply mb-2;
             @apply mr-0;
@@ -96,16 +95,13 @@
           }
 
           .cards__item:nth-child(2n + 2) {
-            //background: blue !important;
             @apply relative;
-            // @apply top-0;
             @apply mt-0;
             @apply mb-2;
             @apply ml-0;
 
             @screen md {
               @apply ml-1;
-              // @apply top-10;
             }
           }
 

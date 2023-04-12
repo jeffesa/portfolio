@@ -34,7 +34,6 @@
 <script lang="ts">
   //@ts-ignore
   import Icon from './shared/Icon'
-  //const Icon = () => import('./shared/Icon');
 
   export default {
     components: { 
@@ -56,17 +55,6 @@
   .profile__container__photo {
     position: relative;
 
-    // &::after {
-    //   content: '';
-    //   width: 56px;
-    //   height: 56px;
-    //   border-radius: 50%;
-    //   border: 3px solid #fff;
-    //   position: absolute;
-    //   top: -3px;
-    //   left: -3px;
-    // }
-
     .profile__photo {
       border-radius: 50%;
       width: 50px;
@@ -85,9 +73,6 @@
 
   .profile__networks {
     .profile__networks__link {
-      // display: grid;
-      // grid-template-columns: 16px auto;
-      
       .profile__networks__icon {
         @apply mr-0;
         font-size: 8px;

@@ -99,9 +99,6 @@ export default {
     }
     
     .contact__title {
-      // @apply text-xs;
-      // @apply font-semibold;
-      // @apply leading-6;
       letter-spacing: 3px;
 
       @screen lg {

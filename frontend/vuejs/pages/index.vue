@@ -88,16 +88,6 @@ export default {
     }
   },
 
-  // created () {
-  //   (async () => {
-  //     this.menu = await this.getMenus()
-  //     this.aboutMe = await this.getAboutMe()
-  //     this.profile = await this.getProfile()
-  //     this.projects = await this.getProjects()
-  //     this.contact = await this.getContact()
-  //   })()
-  // },
-
   mounted () {
     if(typeof window !== 'undefined'){
       window.addEventListener('scroll', this.scrollHandler)

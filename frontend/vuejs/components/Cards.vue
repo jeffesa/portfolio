@@ -243,7 +243,6 @@
         }
 
         .cards__item__image {
-          //height: calc(100% - $card_decrease_size + 2.5rem + $card_margin/2);
           height: auto;
           margin-top: $card_margin;
 
